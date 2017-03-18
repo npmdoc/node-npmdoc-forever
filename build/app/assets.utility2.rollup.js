@@ -13806,7 +13806,7 @@ instruction\n\
             options.packageJson = options.packageJson ||
                 JSON.parse(local.fs.readFileSync('package.json', 'utf8'));
             local.objectSetDefault(options.packageJson, {
-                nameAlias: options.packageJson.name.replace((/-/g), '_'),
+                nameAlias: options.packageJson.name.replace((/\W/g), '_'),
                 repository: { url: 'https://github.com/kaizhu256/node-jslint-lite.git' }
             }, 2);
             options.githubRepo = options.packageJson.repository.url.split('/').slice(-2);
