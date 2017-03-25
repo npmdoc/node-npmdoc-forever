@@ -46,1243 +46,1244 @@
     font-weight: bold;
 }
 </style>
-<h1>api-documentation for
+<h1>api documentation for
     <a
-        
+
         href="https://github.com/foreverjs/forever#readme"
-        
+
     >forever (v0.15.3)</a>
 </h1>
+<h4>A simple CLI tool for ensuring that a given node script runs continuously (i.e. forever)</h4>
 <div class="apidocSectionDiv"><a
     href="#apidoc.tableOfContents"
     id="apidoc.tableOfContents"
 ><h1>table of contents</h1></a><ol>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever">module forever</a><ol>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.</span>initialized</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Forever">
             function <span class="apidocSignatureSpan">forever.</span>Forever
             <span class="apidocSignatureSpan">(script, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor">
             function <span class="apidocSignatureSpan">forever.</span>Monitor
             <span class="apidocSignatureSpan">(script, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_">
             function <span class="apidocSignatureSpan">forever.</span>Monitor.super_
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Worker">
             function <span class="apidocSignatureSpan">forever.</span>Worker
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever._debug">
             function <span class="apidocSignatureSpan">forever.</span>_debug
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.checkProcess">
             function <span class="apidocSignatureSpan">forever.</span>checkProcess
             <span class="apidocSignatureSpan">(pid)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cleanLogsSync">
             function <span class="apidocSignatureSpan">forever.</span>cleanLogsSync
             <span class="apidocSignatureSpan">(processes)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cleanUp">
             function <span class="apidocSignatureSpan">forever.</span>cleanUp
             <span class="apidocSignatureSpan">(cleanLogs, allowManager)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.findById">
             function <span class="apidocSignatureSpan">forever.</span>findById
             <span class="apidocSignatureSpan">(id, processes)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.findByIndex">
             function <span class="apidocSignatureSpan">forever.</span>findByIndex
             <span class="apidocSignatureSpan">(index, processes)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.findByPid">
             function <span class="apidocSignatureSpan">forever.</span>findByPid
             <span class="apidocSignatureSpan">(pid, processes)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.findByScript">
             function <span class="apidocSignatureSpan">forever.</span>findByScript
             <span class="apidocSignatureSpan">(script, processes)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.findByUid">
             function <span class="apidocSignatureSpan">forever.</span>findByUid
             <span class="apidocSignatureSpan">(script, processes)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.format">
             function <span class="apidocSignatureSpan">forever.</span>format
             <span class="apidocSignatureSpan">(format, procs)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.kill">
             function <span class="apidocSignatureSpan">forever.</span>kill
             <span class="apidocSignatureSpan">(pid, killTree, signal, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.list">
             function <span class="apidocSignatureSpan">forever.</span>list
             <span class="apidocSignatureSpan">(format, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.load">
             function <span class="apidocSignatureSpan">forever.</span>load
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.logEvents">
             function <span class="apidocSignatureSpan">forever.</span>logEvents
             <span class="apidocSignatureSpan">(monitor)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.logFilePath">
             function <span class="apidocSignatureSpan">forever.</span>logFilePath
             <span class="apidocSignatureSpan">(logFile, uid)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.pidFilePath">
             function <span class="apidocSignatureSpan">forever.</span>pidFilePath
             <span class="apidocSignatureSpan">(pidFile)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.restart">
             function <span class="apidocSignatureSpan">forever.</span>restart
             <span class="apidocSignatureSpan">(target, format)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.restartAll">
             function <span class="apidocSignatureSpan">forever.</span>restartAll
             <span class="apidocSignatureSpan">(format)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.start">
             function <span class="apidocSignatureSpan">forever.</span>start
             <span class="apidocSignatureSpan">(script, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.startDaemon">
             function <span class="apidocSignatureSpan">forever.</span>startDaemon
             <span class="apidocSignatureSpan">(script, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.startServer">
             function <span class="apidocSignatureSpan">forever.</span>startServer
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.stat">
             function <span class="apidocSignatureSpan">forever.</span>stat
             <span class="apidocSignatureSpan">(logFile, script, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.stop">
             function <span class="apidocSignatureSpan">forever.</span>stop
             <span class="apidocSignatureSpan">(target, format)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.stopAll">
             function <span class="apidocSignatureSpan">forever.</span>stopAll
             <span class="apidocSignatureSpan">(format)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.stopbypid">
             function <span class="apidocSignatureSpan">forever.</span>stopbypid
             <span class="apidocSignatureSpan">(pid, format)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.tail">
             function <span class="apidocSignatureSpan">forever.</span>tail
             <span class="apidocSignatureSpan">(target, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>Monitor.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>Monitor.super_.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>Monitor.super_.super_.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>Worker.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>cli</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>columns</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>config</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>log</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>out</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.</span>root</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.</span>version</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor">module forever.Monitor</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.Monitor">
             function <span class="apidocSignatureSpan">forever.</span>Monitor
             <span class="apidocSignatureSpan">(script, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.parseCommand">
             function <span class="apidocSignatureSpan">forever.Monitor.</span>parseCommand
             <span class="apidocSignatureSpan">(command, args)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_">
             function <span class="apidocSignatureSpan">forever.Monitor.</span>super_
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor.prototype">module forever.Monitor.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype._getEnv">
             function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>_getEnv
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.kill">
             function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>kill
             <span class="apidocSignatureSpan">(forceStop)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.restart">
             function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>restart
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.send">
             function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>send
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.start">
             function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>start
             <span class="apidocSignatureSpan">(restart)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.stop">
             function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>stop
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.toString">
             function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>toString
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.trySpawn">
             function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>trySpawn
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>inspect</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor.super_">module forever.Monitor.super_</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_">
             function <span class="apidocSignatureSpan">forever.Monitor.</span>super_
             <span class="apidocSignatureSpan">(conf)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor.super_.prototype">module forever.Monitor.super_.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.prototype.init">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>init
             <span class="apidocSignatureSpan">(options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.prototype.inspect">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>inspect
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.prototype.remove">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>remove
             <span class="apidocSignatureSpan">(name)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.prototype.use">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>use
             <span class="apidocSignatureSpan">(plugin, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor.super_.super_.prototype">module forever.Monitor.super_.super_.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.addListener">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>addListener
             <span class="apidocSignatureSpan">(type, listener)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.emit">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>emit
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.listeners">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>listeners
             <span class="apidocSignatureSpan">(type)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.listenersAny">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>listenersAny
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.many">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>many
             <span class="apidocSignatureSpan">(event, ttl, fn)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.off">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>off
             <span class="apidocSignatureSpan">(type, listener)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.offAny">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>offAny
             <span class="apidocSignatureSpan">(fn)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.on">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>on
             <span class="apidocSignatureSpan">(type, listener)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.onAny">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>onAny
             <span class="apidocSignatureSpan">(fn)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.once">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>once
             <span class="apidocSignatureSpan">(event, fn)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.removeAllListeners">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>removeAllListeners
             <span class="apidocSignatureSpan">(type)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.removeListener">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>removeListener
             <span class="apidocSignatureSpan">(type, listener)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.setMaxListeners">
             function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>setMaxListeners
             <span class="apidocSignatureSpan">(n)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>delimiter</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>event</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.Worker">module forever.Worker</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Worker.Worker">
             function <span class="apidocSignatureSpan">forever.</span>Worker
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Worker.super_">
             function <span class="apidocSignatureSpan">forever.Worker.</span>super_
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.Worker.prototype">module forever.Worker.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.Worker.prototype.start">
             function <span class="apidocSignatureSpan">forever.Worker.prototype.</span>start
             <span class="apidocSignatureSpan">(callback)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.cli">module forever.cli</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.addColumn">
             function <span class="apidocSignatureSpan">forever.cli.</span>addColumn
             <span class="apidocSignatureSpan">(name)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.cleanLogs">
             function <span class="apidocSignatureSpan">forever.cli.</span>cleanLogs
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.clear">
             function <span class="apidocSignatureSpan">forever.cli.</span>clear
             <span class="apidocSignatureSpan">(key)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.config">
             function <span class="apidocSignatureSpan">forever.cli.</span>config
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.getOptions">
             function <span class="apidocSignatureSpan">forever.cli.</span>getOptions
             <span class="apidocSignatureSpan">(file)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.help">
             function <span class="apidocSignatureSpan">forever.cli.</span>help
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.list">
             function <span class="apidocSignatureSpan">forever.cli.</span>list
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.logFiles">
             function <span class="apidocSignatureSpan">forever.cli.</span>logFiles
             <span class="apidocSignatureSpan">(index)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.logs">
             function <span class="apidocSignatureSpan">forever.cli.</span>logs
             <span class="apidocSignatureSpan">(index)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.resetColumns">
             function <span class="apidocSignatureSpan">forever.cli.</span>resetColumns
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.restart">
             function <span class="apidocSignatureSpan">forever.cli.</span>restart
             <span class="apidocSignatureSpan">(file)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.restartAll">
             function <span class="apidocSignatureSpan">forever.cli.</span>restartAll
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.rmColumn">
             function <span class="apidocSignatureSpan">forever.cli.</span>rmColumn
             <span class="apidocSignatureSpan">(name)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.run">
             function <span class="apidocSignatureSpan">forever.cli.</span>run
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.set">
             function <span class="apidocSignatureSpan">forever.cli.</span>set
             <span class="apidocSignatureSpan">(key, value)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.setColumns">
             function <span class="apidocSignatureSpan">forever.cli.</span>setColumns
             <span class="apidocSignatureSpan">(columns)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.start">
             function <span class="apidocSignatureSpan">forever.cli.</span>start
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.startDaemon">
             function <span class="apidocSignatureSpan">forever.cli.</span>startDaemon
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.stop">
             function <span class="apidocSignatureSpan">forever.cli.</span>stop
             <span class="apidocSignatureSpan">(file)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.stopall">
             function <span class="apidocSignatureSpan">forever.cli.</span>stopall
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.cli.stopbypid">
             function <span class="apidocSignatureSpan">forever.cli.</span>stopbypid
             <span class="apidocSignatureSpan">(pid)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.cli.</span>argvOptions</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.log">module forever.log</a><ol>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.log.</span>emitErrs</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.log.</span>exitOnError</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.log.</span>padLevels</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.log.</span>stripColors</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.data">
             function <span class="apidocSignatureSpan">forever.log.</span>data
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.debug">
             function <span class="apidocSignatureSpan">forever.log.</span>debug
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.error">
             function <span class="apidocSignatureSpan">forever.log.</span>error
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.help">
             function <span class="apidocSignatureSpan">forever.log.</span>help
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.info">
             function <span class="apidocSignatureSpan">forever.log.</span>info
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.input">
             function <span class="apidocSignatureSpan">forever.log.</span>input
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.prompt">
             function <span class="apidocSignatureSpan">forever.log.</span>prompt
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.silly">
             function <span class="apidocSignatureSpan">forever.log.</span>silly
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.verbose">
             function <span class="apidocSignatureSpan">forever.log.</span>verbose
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.log.warn">
             function <span class="apidocSignatureSpan">forever.log.</span>warn
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">forever.log.</span>_eventsCount</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">forever.log.</span>levelLength</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>_events</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>_hnames</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>_names</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>domain</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>exceptionHandlers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>levels</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>profilers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>rewriters</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>transports</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.log.</span>level</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.forever.out">module forever.out</a><ol>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.out.</span>emitErrs</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.out.</span>exitOnError</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.out.</span>padLevels</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.out.</span>stripColors</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.out.debug">
             function <span class="apidocSignatureSpan">forever.out.</span>debug
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.out.error">
             function <span class="apidocSignatureSpan">forever.out.</span>error
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.out.info">
             function <span class="apidocSignatureSpan">forever.out.</span>info
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.out.silly">
             function <span class="apidocSignatureSpan">forever.out.</span>silly
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.out.verbose">
             function <span class="apidocSignatureSpan">forever.out.</span>verbose
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.forever.out.warn">
             function <span class="apidocSignatureSpan">forever.out.</span>warn
             <span class="apidocSignatureSpan">(msg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">forever.out.</span>_eventsCount</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>_events</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>_hnames</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>_names</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>domain</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>exceptionHandlers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>levels</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>profilers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>rewriters</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>transports</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.out.</span>level</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever" id="apidoc.module.forever">module forever</a></h1>
-    
-    
-    
-    
+
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Forever" id="apidoc.element.forever.Forever">
         function <span class="apidocSignatureSpan">forever.</span>Forever
@@ -1408,9 +1409,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor" id="apidoc.element.forever.Monitor">
         function <span class="apidocSignatureSpan">forever.</span>Monitor
@@ -1536,9 +1537,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_" id="apidoc.element.forever.Monitor.super_">
         function <span class="apidocSignatureSpan">forever.</span>Monitor.super_
@@ -1581,9 +1582,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Worker" id="apidoc.element.forever.Worker">
         function <span class="apidocSignatureSpan">forever.</span>Worker
@@ -1603,9 +1604,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever._debug" id="apidoc.element.forever._debug">
         function <span class="apidocSignatureSpan">forever.</span>_debug
@@ -1626,9 +1627,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.checkProcess" id="apidoc.element.forever.checkProcess">
         function <span class="apidocSignatureSpan">forever.</span>checkProcess
@@ -1656,9 +1657,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cleanLogsSync" id="apidoc.element.forever.cleanLogsSync">
         function <span class="apidocSignatureSpan">forever.</span>cleanLogsSync
@@ -1688,9 +1689,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cleanUp" id="apidoc.element.forever.cleanUp">
         function <span class="apidocSignatureSpan">forever.</span>cleanUp
@@ -1783,9 +1784,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.findById" id="apidoc.element.forever.findById">
         function <span class="apidocSignatureSpan">forever.</span>findById
@@ -1805,9 +1806,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.findByIndex" id="apidoc.element.forever.findByIndex">
         function <span class="apidocSignatureSpan">forever.</span>findByIndex
@@ -1826,9 +1827,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.findByPid" id="apidoc.element.forever.findByPid">
         function <span class="apidocSignatureSpan">forever.</span>findByPid
@@ -1850,9 +1851,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.findByScript" id="apidoc.element.forever.findByScript">
         function <span class="apidocSignatureSpan">forever.</span>findByScript
@@ -1877,9 +1878,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.findByUid" id="apidoc.element.forever.findByUid">
         function <span class="apidocSignatureSpan">forever.</span>findByUid
@@ -1899,9 +1900,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.format" id="apidoc.element.forever.format">
         function <span class="apidocSignatureSpan">forever.</span>format
@@ -1949,9 +1950,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.kill" id="apidoc.element.forever.kill">
         function <span class="apidocSignatureSpan">forever.</span>kill
@@ -1985,9 +1986,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.list" id="apidoc.element.forever.list">
         function <span class="apidocSignatureSpan">forever.</span>list
@@ -2006,11 +2007,11 @@
 ```
 
 ### Using In Your Code
-The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emi\
-ts when complete. See the [forever cli commands][2] for sample usage.
+The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emits
+ when complete. See the [forever cli commands][2] for sample usage.
 
-**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.<span class="apidocCodeKeywordSpan">\
-list</span>()`. In order to get your processes into `forever.list()` or `forever list` you must instantiate the `forever` socket\
+**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.<span class="apidocCodeKeywordSpan">
+list</span>()`. In order to get your processes into `forever.list()` or `forever list` you must instantiate the `forever` socket
  server:
 
 ``` js
@@ -2020,9 +2021,9 @@ list</span>()`. In order to get your processes into `forever.list()` or `forever
 This method takes multiple `forever.Monitor` instances which are defined in the `forever-monitor` dependency.
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.load" id="apidoc.element.forever.load">
         function <span class="apidocSignatureSpan">forever.</span>load
@@ -2129,9 +2130,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.logEvents" id="apidoc.element.forever.logEvents">
         function <span class="apidocSignatureSpan">forever.</span>logEvents
@@ -2161,9 +2162,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.logFilePath" id="apidoc.element.forever.logFilePath">
         function <span class="apidocSignatureSpan">forever.</span>logFilePath
@@ -2178,9 +2179,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.pidFilePath" id="apidoc.element.forever.pidFilePath">
         function <span class="apidocSignatureSpan">forever.</span>pidFilePath
@@ -2195,9 +2196,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.restart" id="apidoc.element.forever.restart">
         function <span class="apidocSignatureSpan">forever.</span>restart
@@ -2210,9 +2211,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.restartAll" id="apidoc.element.forever.restartAll">
         function <span class="apidocSignatureSpan">forever.</span>restartAll
@@ -2225,9 +2226,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.start" id="apidoc.element.forever.start">
         function <span class="apidocSignatureSpan">forever.</span>start
@@ -2253,9 +2254,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.startDaemon" id="apidoc.element.forever.startDaemon">
         function <span class="apidocSignatureSpan">forever.</span>startDaemon
@@ -2308,9 +2309,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.startServer" id="apidoc.element.forever.startServer">
         function <span class="apidocSignatureSpan">forever.</span>startServer
@@ -2352,11 +2353,11 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
     <li>example usage<pre class="apidocCodePre">...
 
 ### Using In Your Code
-The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emi\
-ts when complete. See the [forever cli commands][2] for sample usage.
+The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emits
+ when complete. See the [forever cli commands][2] for sample usage.
 
-**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.list()`. In order to get your proces\
-ses into `forever.list()` or `forever list` you must instantiate the `forever` socket server:
+**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.list()`. In order to get your processes
+ into `forever.list()` or `forever list` you must instantiate the `forever` socket server:
 
 ``` js
   forever.<span class="apidocCodeKeywordSpan">startServer</span>(child);
@@ -2368,9 +2369,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 _Synchronously_ sets the specified configuration (config) for the forever module. There are two important options:
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.stat" id="apidoc.element.forever.stat">
         function <span class="apidocSignatureSpan">forever.</span>stat
@@ -2400,9 +2401,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.stop" id="apidoc.element.forever.stop">
         function <span class="apidocSignatureSpan">forever.</span>stop
@@ -2415,9 +2416,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.stopAll" id="apidoc.element.forever.stopAll">
         function <span class="apidocSignatureSpan">forever.</span>stopAll
@@ -2430,9 +2431,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.stopbypid" id="apidoc.element.forever.stopbypid">
         function <span class="apidocSignatureSpan">forever.</span>stopbypid
@@ -2446,9 +2447,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.tail" id="apidoc.element.forever.tail">
         function <span class="apidocSignatureSpan">forever.</span>tail
@@ -2538,36 +2539,36 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.Monitor" id="apidoc.module.forever.Monitor">module forever.Monitor</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.Monitor" id="apidoc.element.forever.Monitor.Monitor">
         function <span class="apidocSignatureSpan">forever.</span>Monitor
@@ -2693,9 +2694,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.parseCommand" id="apidoc.element.forever.Monitor.parseCommand">
         function <span class="apidocSignatureSpan">forever.Monitor.</span>parseCommand
@@ -2734,9 +2735,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_" id="apidoc.element.forever.Monitor.super_">
         function <span class="apidocSignatureSpan">forever.Monitor.</span>super_
@@ -2779,14 +2780,14 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.Monitor.prototype" id="apidoc.module.forever.Monitor.prototype">module forever.Monitor.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.prototype._getEnv" id="apidoc.element.forever.Monitor.prototype._getEnv">
         function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>_getEnv
@@ -2820,9 +2821,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.prototype.kill" id="apidoc.element.forever.Monitor.prototype.kill">
         function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>kill
@@ -2877,9 +2878,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.prototype.restart" id="apidoc.element.forever.Monitor.prototype.restart">
         function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>restart
@@ -2897,9 +2898,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.prototype.send" id="apidoc.element.forever.Monitor.prototype.send">
         function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>send
@@ -2921,9 +2922,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.prototype.start" id="apidoc.element.forever.Monitor.prototype.start">
         function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>start
@@ -3002,9 +3003,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.prototype.stop" id="apidoc.element.forever.Monitor.prototype.stop">
         function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>stop
@@ -3017,9 +3018,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.prototype.toString" id="apidoc.element.forever.Monitor.prototype.toString">
         function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>toString
@@ -3032,9 +3033,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.prototype.trySpawn" id="apidoc.element.forever.Monitor.prototype.trySpawn">
         function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>trySpawn
@@ -3078,16 +3079,16 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.Monitor.super_" id="apidoc.module.forever.Monitor.super_">module forever.Monitor.super_</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_" id="apidoc.element.forever.Monitor.super_.super_">
         function <span class="apidocSignatureSpan">forever.Monitor.</span>super_
@@ -3102,14 +3103,14 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.Monitor.super_.prototype" id="apidoc.module.forever.Monitor.super_.prototype">module forever.Monitor.super_.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.prototype.init" id="apidoc.element.forever.Monitor.super_.prototype.init">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>init
@@ -3182,9 +3183,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.prototype.inspect" id="apidoc.element.forever.Monitor.super_.prototype.inspect">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>inspect
@@ -3197,9 +3198,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.prototype.remove" id="apidoc.element.forever.Monitor.super_.prototype.remove">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>remove
@@ -3229,9 +3230,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.prototype.use" id="apidoc.element.forever.Monitor.super_.prototype.use">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>use
@@ -3299,14 +3300,14 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.Monitor.super_.super_.prototype" id="apidoc.module.forever.Monitor.super_.super_.prototype">module forever.Monitor.super_.super_.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.addListener" id="apidoc.element.forever.Monitor.super_.super_.prototype.addListener">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>addListener
@@ -3371,9 +3372,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.emit" id="apidoc.element.forever.Monitor.super_.super_.prototype.emit">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>emit
@@ -3470,9 +3471,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.listeners" id="apidoc.element.forever.Monitor.super_.super_.prototype.listeners">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>listeners
@@ -3498,9 +3499,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.listenersAny" id="apidoc.element.forever.Monitor.super_.super_.prototype.listenersAny">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>listenersAny
@@ -3520,9 +3521,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.many" id="apidoc.element.forever.Monitor.super_.super_.prototype.many">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>many
@@ -3552,9 +3553,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.off" id="apidoc.element.forever.Monitor.super_.super_.prototype.off">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>off
@@ -3633,9 +3634,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.offAny" id="apidoc.element.forever.Monitor.super_.super_.prototype.offAny">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>offAny
@@ -3660,9 +3661,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.on" id="apidoc.element.forever.Monitor.super_.super_.prototype.on">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>on
@@ -3727,9 +3728,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.onAny" id="apidoc.element.forever.Monitor.super_.super_.prototype.onAny">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>onAny
@@ -3753,9 +3754,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.once" id="apidoc.element.forever.Monitor.super_.super_.prototype.once">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>once
@@ -3769,9 +3770,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.removeAllListeners" id="apidoc.element.forever.Monitor.super_.super_.prototype.removeAllListeners">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>removeAllListeners
@@ -3802,9 +3803,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.removeListener" id="apidoc.element.forever.Monitor.super_.super_.prototype.removeListener">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>removeListener
@@ -3883,9 +3884,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.setMaxListeners" id="apidoc.element.forever.Monitor.super_.super_.prototype.setMaxListeners">
         function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>setMaxListeners
@@ -3901,18 +3902,18 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.Worker" id="apidoc.module.forever.Worker">module forever.Worker</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.forever.Worker.Worker" id="apidoc.element.forever.Worker.Worker">
         function <span class="apidocSignatureSpan">forever.</span>Worker
@@ -3932,9 +3933,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.Worker.super_" id="apidoc.element.forever.Worker.super_">
         function <span class="apidocSignatureSpan">forever.Worker.</span>super_
@@ -3947,14 +3948,14 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.Worker.prototype" id="apidoc.module.forever.Worker.prototype">module forever.Worker.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.forever.Worker.prototype.start" id="apidoc.element.forever.Worker.prototype.start">
         function <span class="apidocSignatureSpan">forever.Worker.prototype.</span>start
@@ -4108,14 +4109,14 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.cli" id="apidoc.module.forever.cli">module forever.cli</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.addColumn" id="apidoc.element.forever.cli.addColumn">
         function <span class="apidocSignatureSpan">forever.cli.</span>addColumn
@@ -4140,9 +4141,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.cleanLogs" id="apidoc.element.forever.cli.cleanLogs">
         function <span class="apidocSignatureSpan">forever.cli.</span>cleanLogs
@@ -4158,9 +4159,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.clear" id="apidoc.element.forever.cli.clear">
         function <span class="apidocSignatureSpan">forever.cli.</span>clear
@@ -4182,9 +4183,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.config" id="apidoc.element.forever.cli.config">
         function <span class="apidocSignatureSpan">forever.cli.</span>config
@@ -4212,9 +4213,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.getOptions" id="apidoc.element.forever.cli.getOptions">
         function <span class="apidocSignatureSpan">forever.cli.</span>getOptions
@@ -4314,9 +4315,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.help" id="apidoc.element.forever.cli.help">
         function <span class="apidocSignatureSpan">forever.cli.</span>help
@@ -4329,9 +4330,9 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.list" id="apidoc.element.forever.cli.list">
         function <span class="apidocSignatureSpan">forever.cli.</span>list
@@ -4358,11 +4359,11 @@ _Synchronously_ sets the specified configuration (config) for the forever module
 ```
 
 ### Using In Your Code
-The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emi\
-ts when complete. See the [forever cli commands][2] for sample usage.
+The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emits
+ when complete. See the [forever cli commands][2] for sample usage.
 
-**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.<span class="apidocCodeKeywordSpan">\
-list</span>()`. In order to get your processes into `forever.list()` or `forever list` you must instantiate the `forever` socket\
+**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.<span class="apidocCodeKeywordSpan">
+list</span>()`. In order to get your processes into `forever.list()` or `forever list` you must instantiate the `forever` socket
  server:
 
 ``` js
@@ -4372,9 +4373,9 @@ list</span>()`. In order to get your processes into `forever.list()` or `forever
 This method takes multiple `forever.Monitor` instances which are defined in the `forever-monitor` dependency.
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.logFiles" id="apidoc.element.forever.cli.logFiles">
         function <span class="apidocSignatureSpan">forever.cli.</span>logFiles
@@ -4405,9 +4406,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.logs" id="apidoc.element.forever.cli.logs">
         function <span class="apidocSignatureSpan">forever.cli.</span>logs
@@ -4432,9 +4433,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.resetColumns" id="apidoc.element.forever.cli.resetColumns">
         function <span class="apidocSignatureSpan">forever.cli.</span>resetColumns
@@ -4452,9 +4453,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.restart" id="apidoc.element.forever.cli.restart">
         function <span class="apidocSignatureSpan">forever.cli.</span>restart
@@ -4484,9 +4485,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.restartAll" id="apidoc.element.forever.cli.restartAll">
         function <span class="apidocSignatureSpan">forever.cli.</span>restartAll
@@ -4514,9 +4515,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.rmColumn" id="apidoc.element.forever.cli.rmColumn">
         function <span class="apidocSignatureSpan">forever.cli.</span>rmColumn
@@ -4541,9 +4542,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.run" id="apidoc.element.forever.cli.run">
         function <span class="apidocSignatureSpan">forever.cli.</span>run
@@ -4566,9 +4567,9 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.set" id="apidoc.element.forever.cli.set">
         function <span class="apidocSignatureSpan">forever.cli.</span>set
@@ -4585,30 +4586,30 @@ This method takes multiple `forever.Monitor` instances which are defined in the 
     <li>example usage<pre class="apidocCodePre">...
 
 #### forever.stop (index)
-Stops the forever daemon script at the specified index. These indices are the same as those returned by forever.list(). This met\
-hod returns an EventEmitter that raises the &#x27;stop&#x27; event when complete.
+Stops the forever daemon script at the specified index. These indices are the same as those returned by forever.list(). This method
+ returns an EventEmitter that raises the &#x27;stop&#x27; event when complete.
 
 #### forever.stopAll (format)
-Stops all forever scripts currently running. This method returns an EventEmitter that raises the &#x27;stopAll&#x27; event when \
+Stops all forever scripts currently running. This method returns an EventEmitter that raises the &#x27;stopAll&#x27; event when
 complete.
 
-The `format` parameter is a boolean value indicating whether the returned values should be formatted according to the configured\
- columns which can set with `forever columns` or programmatically `forever.config.<span class="apidocCodeKeywordSpan">set</span>\
-(&#x27;columns&#x27;)`.
+The `format` parameter is a boolean value indicating whether the returned values should be formatted according to the configured
+ columns which can set with `forever columns` or programmatically `forever.config.<span class="apidocCodeKeywordSpan">set</span>(&#
+x27;columns&#x27;)`.
 
 #### forever.list (format, callback)
-Returns a list of metadata objects about each process that is being run using forever. This method will return the list of metad\
-ata as such. Only processes which have invoked `forever.startServer()` will be available from `forever.list()`
+Returns a list of metadata objects about each process that is being run using forever. This method will return the list of metadata
+ as such. Only processes which have invoked `forever.startServer()` will be available from `forever.list()`
 
-The `format` parameter is a boolean value indicating whether the returned values should be formatted according to the configured\
+The `format` parameter is a boolean value indicating whether the returned values should be formatted according to the configured
  columns which can set with `forever columns` or programmatically `forever.config.set(&#x27;columns&#x27;)`.
 
 #### forever.tail (target, options, callback)
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.setColumns" id="apidoc.element.forever.cli.setColumns">
         function <span class="apidocSignatureSpan">forever.cli.</span>setColumns
@@ -4624,9 +4625,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.start" id="apidoc.element.forever.cli.start">
         function <span class="apidocSignatureSpan">forever.cli.</span>start
@@ -4660,9 +4661,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.startDaemon" id="apidoc.element.forever.cli.startDaemon">
         function <span class="apidocSignatureSpan">forever.cli.</span>startDaemon
@@ -4684,9 +4685,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.stop" id="apidoc.element.forever.cli.stop">
         function <span class="apidocSignatureSpan">forever.cli.</span>stop
@@ -4708,9 +4709,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.stopall" id="apidoc.element.forever.cli.stopall">
         function <span class="apidocSignatureSpan">forever.cli.</span>stopall
@@ -4738,9 +4739,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.cli.stopbypid" id="apidoc.element.forever.cli.stopbypid">
         function <span class="apidocSignatureSpan">forever.cli.</span>stopbypid
@@ -4754,24 +4755,24 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.log" id="apidoc.module.forever.log">module forever.log</a></h1>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.data" id="apidoc.element.forever.log.data">
         function <span class="apidocSignatureSpan">forever.log.</span>data
@@ -4786,9 +4787,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.debug" id="apidoc.element.forever.log.debug">
         function <span class="apidocSignatureSpan">forever.log.</span>debug
@@ -4803,9 +4804,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.error" id="apidoc.element.forever.log.error">
         function <span class="apidocSignatureSpan">forever.log.</span>error
@@ -4820,9 +4821,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.help" id="apidoc.element.forever.log.help">
         function <span class="apidocSignatureSpan">forever.log.</span>help
@@ -4837,9 +4838,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.info" id="apidoc.element.forever.log.info">
         function <span class="apidocSignatureSpan">forever.log.</span>info
@@ -4854,9 +4855,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.input" id="apidoc.element.forever.log.input">
         function <span class="apidocSignatureSpan">forever.log.</span>input
@@ -4871,9 +4872,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.prompt" id="apidoc.element.forever.log.prompt">
         function <span class="apidocSignatureSpan">forever.log.</span>prompt
@@ -4888,9 +4889,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.silly" id="apidoc.element.forever.log.silly">
         function <span class="apidocSignatureSpan">forever.log.</span>silly
@@ -4905,9 +4906,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.verbose" id="apidoc.element.forever.log.verbose">
         function <span class="apidocSignatureSpan">forever.log.</span>verbose
@@ -4922,9 +4923,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.log.warn" id="apidoc.element.forever.log.warn">
         function <span class="apidocSignatureSpan">forever.log.</span>warn
@@ -4939,46 +4940,46 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.forever.out" id="apidoc.module.forever.out">module forever.out</a></h1>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
     <h2>
         <a href="#apidoc.element.forever.out.debug" id="apidoc.element.forever.out.debug">
         function <span class="apidocSignatureSpan">forever.out.</span>debug
@@ -4993,9 +4994,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.out.error" id="apidoc.element.forever.out.error">
         function <span class="apidocSignatureSpan">forever.out.</span>error
@@ -5010,9 +5011,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.out.info" id="apidoc.element.forever.out.info">
         function <span class="apidocSignatureSpan">forever.out.</span>info
@@ -5027,9 +5028,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.out.silly" id="apidoc.element.forever.out.silly">
         function <span class="apidocSignatureSpan">forever.out.</span>silly
@@ -5044,9 +5045,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.out.verbose" id="apidoc.element.forever.out.verbose">
         function <span class="apidocSignatureSpan">forever.out.</span>verbose
@@ -5061,9 +5062,9 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.forever.out.warn" id="apidoc.element.forever.out.warn">
         function <span class="apidocSignatureSpan">forever.out.</span>warn
@@ -5078,30 +5079,30 @@ The `format` parameter is a boolean value indicating whether the returned values
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocFooterDiv">
