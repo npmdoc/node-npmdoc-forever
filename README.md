@@ -1,11 +1,13 @@
-# api documentation for  [forever (v0.15.3)](https://github.com/foreverjs/forever#readme)  [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-forever.svg)](https://travis-ci.org/npmdoc/node-npmdoc-forever)
+# api documentation for  [forever (v0.15.3)](https://github.com/foreverjs/forever#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-forever.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-forever) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-forever.svg)](https://travis-ci.org/npmdoc/node-npmdoc-forever)
 #### A simple CLI tool for ensuring that a given node script runs continuously (i.e. forever)
 
 [![NPM](https://nodei.co/npm/forever.png?downloads=true)](https://www.npmjs.com/package/forever)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-forever/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-forever_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-forever/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-forever/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-forever_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-forever/build..beta..travis-ci.org/apidoc.html)
 
-![package-listing](https://npmdoc.github.io/node-npmdoc-forever/build/screen-capture.npmPackageListing.svg)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-forever/build/screenCapture.npmPackageListing.svg)
+
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-forever/build/screenCapture.npmPackageDependencyTree.svg)
 
 
 
