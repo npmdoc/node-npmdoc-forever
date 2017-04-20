@@ -1,0 +1,5113 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/foreverjs/forever#readme"
+
+    >forever (v0.15.3)</a>
+</h1>
+<h4>A simple CLI tool for ensuring that a given node script runs continuously (i.e. forever)</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever">module forever</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.</span>initialized</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Forever">
+            function <span class="apidocSignatureSpan">forever.</span>Forever
+            <span class="apidocSignatureSpan">(script, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor">
+            function <span class="apidocSignatureSpan">forever.</span>Monitor
+            <span class="apidocSignatureSpan">(script, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_">
+            function <span class="apidocSignatureSpan">forever.</span>Monitor.super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Worker">
+            function <span class="apidocSignatureSpan">forever.</span>Worker
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever._debug">
+            function <span class="apidocSignatureSpan">forever.</span>_debug
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.checkProcess">
+            function <span class="apidocSignatureSpan">forever.</span>checkProcess
+            <span class="apidocSignatureSpan">(pid)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cleanLogsSync">
+            function <span class="apidocSignatureSpan">forever.</span>cleanLogsSync
+            <span class="apidocSignatureSpan">(processes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cleanUp">
+            function <span class="apidocSignatureSpan">forever.</span>cleanUp
+            <span class="apidocSignatureSpan">(cleanLogs, allowManager)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.findById">
+            function <span class="apidocSignatureSpan">forever.</span>findById
+            <span class="apidocSignatureSpan">(id, processes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.findByIndex">
+            function <span class="apidocSignatureSpan">forever.</span>findByIndex
+            <span class="apidocSignatureSpan">(index, processes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.findByPid">
+            function <span class="apidocSignatureSpan">forever.</span>findByPid
+            <span class="apidocSignatureSpan">(pid, processes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.findByScript">
+            function <span class="apidocSignatureSpan">forever.</span>findByScript
+            <span class="apidocSignatureSpan">(script, processes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.findByUid">
+            function <span class="apidocSignatureSpan">forever.</span>findByUid
+            <span class="apidocSignatureSpan">(script, processes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.format">
+            function <span class="apidocSignatureSpan">forever.</span>format
+            <span class="apidocSignatureSpan">(format, procs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.kill">
+            function <span class="apidocSignatureSpan">forever.</span>kill
+            <span class="apidocSignatureSpan">(pid, killTree, signal, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.list">
+            function <span class="apidocSignatureSpan">forever.</span>list
+            <span class="apidocSignatureSpan">(format, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.load">
+            function <span class="apidocSignatureSpan">forever.</span>load
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.logEvents">
+            function <span class="apidocSignatureSpan">forever.</span>logEvents
+            <span class="apidocSignatureSpan">(monitor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.logFilePath">
+            function <span class="apidocSignatureSpan">forever.</span>logFilePath
+            <span class="apidocSignatureSpan">(logFile, uid)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.pidFilePath">
+            function <span class="apidocSignatureSpan">forever.</span>pidFilePath
+            <span class="apidocSignatureSpan">(pidFile)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.restart">
+            function <span class="apidocSignatureSpan">forever.</span>restart
+            <span class="apidocSignatureSpan">(target, format)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.restartAll">
+            function <span class="apidocSignatureSpan">forever.</span>restartAll
+            <span class="apidocSignatureSpan">(format)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.start">
+            function <span class="apidocSignatureSpan">forever.</span>start
+            <span class="apidocSignatureSpan">(script, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.startDaemon">
+            function <span class="apidocSignatureSpan">forever.</span>startDaemon
+            <span class="apidocSignatureSpan">(script, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.startServer">
+            function <span class="apidocSignatureSpan">forever.</span>startServer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.stat">
+            function <span class="apidocSignatureSpan">forever.</span>stat
+            <span class="apidocSignatureSpan">(logFile, script, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.stop">
+            function <span class="apidocSignatureSpan">forever.</span>stop
+            <span class="apidocSignatureSpan">(target, format)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.stopAll">
+            function <span class="apidocSignatureSpan">forever.</span>stopAll
+            <span class="apidocSignatureSpan">(format)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.stopbypid">
+            function <span class="apidocSignatureSpan">forever.</span>stopbypid
+            <span class="apidocSignatureSpan">(pid, format)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.tail">
+            function <span class="apidocSignatureSpan">forever.</span>tail
+            <span class="apidocSignatureSpan">(target, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>Monitor.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>Monitor.super_.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>Monitor.super_.super_.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>Worker.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>cli</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>columns</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>log</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.</span>out</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.</span>root</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor">module forever.Monitor</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.Monitor">
+            function <span class="apidocSignatureSpan">forever.</span>Monitor
+            <span class="apidocSignatureSpan">(script, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.parseCommand">
+            function <span class="apidocSignatureSpan">forever.Monitor.</span>parseCommand
+            <span class="apidocSignatureSpan">(command, args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_">
+            function <span class="apidocSignatureSpan">forever.Monitor.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor.prototype">module forever.Monitor.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype._getEnv">
+            function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>_getEnv
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.kill">
+            function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>kill
+            <span class="apidocSignatureSpan">(forceStop)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.restart">
+            function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>restart
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.send">
+            function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>send
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.start">
+            function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>start
+            <span class="apidocSignatureSpan">(restart)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.stop">
+            function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>stop
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.toString">
+            function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.prototype.trySpawn">
+            function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>trySpawn
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>inspect</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor.super_">module forever.Monitor.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_">
+            function <span class="apidocSignatureSpan">forever.Monitor.</span>super_
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor.super_.prototype">module forever.Monitor.super_.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.prototype.init">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>init
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.prototype.inspect">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>inspect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.prototype.remove">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>remove
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.prototype.use">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>use
+            <span class="apidocSignatureSpan">(plugin, options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.Monitor.super_.super_.prototype">module forever.Monitor.super_.super_.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.addListener">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>addListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.emit">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>emit
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.listeners">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>listeners
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.listenersAny">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>listenersAny
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.many">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>many
+            <span class="apidocSignatureSpan">(event, ttl, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.off">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>off
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.offAny">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>offAny
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.on">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>on
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.onAny">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>onAny
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.once">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>once
+            <span class="apidocSignatureSpan">(event, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.removeAllListeners">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>removeAllListeners
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.removeListener">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>removeListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Monitor.super_.super_.prototype.setMaxListeners">
+            function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>setMaxListeners
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>delimiter</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>event</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.Worker">module forever.Worker</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Worker.Worker">
+            function <span class="apidocSignatureSpan">forever.</span>Worker
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Worker.super_">
+            function <span class="apidocSignatureSpan">forever.Worker.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.Worker.prototype">module forever.Worker.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.Worker.prototype.start">
+            function <span class="apidocSignatureSpan">forever.Worker.prototype.</span>start
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.cli">module forever.cli</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.addColumn">
+            function <span class="apidocSignatureSpan">forever.cli.</span>addColumn
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.cleanLogs">
+            function <span class="apidocSignatureSpan">forever.cli.</span>cleanLogs
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.clear">
+            function <span class="apidocSignatureSpan">forever.cli.</span>clear
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.config">
+            function <span class="apidocSignatureSpan">forever.cli.</span>config
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.getOptions">
+            function <span class="apidocSignatureSpan">forever.cli.</span>getOptions
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.help">
+            function <span class="apidocSignatureSpan">forever.cli.</span>help
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.list">
+            function <span class="apidocSignatureSpan">forever.cli.</span>list
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.logFiles">
+            function <span class="apidocSignatureSpan">forever.cli.</span>logFiles
+            <span class="apidocSignatureSpan">(index)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.logs">
+            function <span class="apidocSignatureSpan">forever.cli.</span>logs
+            <span class="apidocSignatureSpan">(index)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.resetColumns">
+            function <span class="apidocSignatureSpan">forever.cli.</span>resetColumns
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.restart">
+            function <span class="apidocSignatureSpan">forever.cli.</span>restart
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.restartAll">
+            function <span class="apidocSignatureSpan">forever.cli.</span>restartAll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.rmColumn">
+            function <span class="apidocSignatureSpan">forever.cli.</span>rmColumn
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.run">
+            function <span class="apidocSignatureSpan">forever.cli.</span>run
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.set">
+            function <span class="apidocSignatureSpan">forever.cli.</span>set
+            <span class="apidocSignatureSpan">(key, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.setColumns">
+            function <span class="apidocSignatureSpan">forever.cli.</span>setColumns
+            <span class="apidocSignatureSpan">(columns)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.start">
+            function <span class="apidocSignatureSpan">forever.cli.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.startDaemon">
+            function <span class="apidocSignatureSpan">forever.cli.</span>startDaemon
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.stop">
+            function <span class="apidocSignatureSpan">forever.cli.</span>stop
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.stopall">
+            function <span class="apidocSignatureSpan">forever.cli.</span>stopall
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.cli.stopbypid">
+            function <span class="apidocSignatureSpan">forever.cli.</span>stopbypid
+            <span class="apidocSignatureSpan">(pid)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.cli.</span>argvOptions</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.log">module forever.log</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.log.</span>emitErrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.log.</span>exitOnError</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.log.</span>padLevels</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.log.</span>stripColors</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.data">
+            function <span class="apidocSignatureSpan">forever.log.</span>data
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.debug">
+            function <span class="apidocSignatureSpan">forever.log.</span>debug
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.error">
+            function <span class="apidocSignatureSpan">forever.log.</span>error
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.help">
+            function <span class="apidocSignatureSpan">forever.log.</span>help
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.info">
+            function <span class="apidocSignatureSpan">forever.log.</span>info
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.input">
+            function <span class="apidocSignatureSpan">forever.log.</span>input
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.prompt">
+            function <span class="apidocSignatureSpan">forever.log.</span>prompt
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.silly">
+            function <span class="apidocSignatureSpan">forever.log.</span>silly
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.verbose">
+            function <span class="apidocSignatureSpan">forever.log.</span>verbose
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.log.warn">
+            function <span class="apidocSignatureSpan">forever.log.</span>warn
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">forever.log.</span>_eventsCount</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">forever.log.</span>levelLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>_events</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>_hnames</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>_names</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>domain</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>exceptionHandlers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>levels</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>profilers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>rewriters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.log.</span>transports</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.log.</span>level</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.forever.out">module forever.out</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.out.</span>emitErrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.out.</span>exitOnError</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.out.</span>padLevels</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">forever.out.</span>stripColors</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.out.debug">
+            function <span class="apidocSignatureSpan">forever.out.</span>debug
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.out.error">
+            function <span class="apidocSignatureSpan">forever.out.</span>error
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.out.info">
+            function <span class="apidocSignatureSpan">forever.out.</span>info
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.out.silly">
+            function <span class="apidocSignatureSpan">forever.out.</span>silly
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.out.verbose">
+            function <span class="apidocSignatureSpan">forever.out.</span>verbose
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.forever.out.warn">
+            function <span class="apidocSignatureSpan">forever.out.</span>warn
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">forever.out.</span>_eventsCount</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>_events</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>_hnames</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>_names</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>domain</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>exceptionHandlers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>levels</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>profilers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>rewriters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">forever.out.</span>transports</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">forever.out.</span>level</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever" id="apidoc.module.forever">module forever</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Forever" id="apidoc.element.forever.Forever">
+        function <span class="apidocSignatureSpan">forever.</span>Forever
+        <span class="apidocSignatureSpan">(script, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Forever = function (script, options) {
+  //
+  // Simple bootstrapper for attaching logger
+  // and watch plugins by default. Other plugins
+  // can be attached through `monitor.use(plugin, options)`.
+  //
+  function bootstrap(monitor) {
+    plugins.logger.attach.call(monitor, options);
+    if (options.watch) {
+      plugins.watch.attach.call(monitor, options);
+    }
+  }
+
+  var execPath = process.execPath,
+      self     = this;
+
+  //
+  // Setup basic configuration options
+  //
+  options               = options || {};
+  this.silent           = options.silent || false;
+  this.killTree         = options.killTree !== false;
+  this.uid              = options.uid || utile.randomString(4);
+  this.id               = options.id || false;
+  this.pidFile          = options.pidFile;
+  this.max              = options.max;
+  this.killTTL          = options.killTTL;
+  this.killSignal       = options.killSignal || &#x27;SIGKILL&#x27;;
+  this.childExists      = false;
+  this.checkFile        = options.checkFile !== false;
+  this.times            = 0;
+  this.warn             = console.error;
+
+  this.logFile          = options.logFile;
+  this.outFile          = options.outFile;
+  this.errFile          = options.errFile;
+  this.append           = options.append;
+  this.usePolling       = options.usePolling;
+  this.pollingInterval  = options.pollingInterval;
+
+  //
+  // Define some safety checks for commands with spaces
+  //
+  this.parser = options.parser || Monitor.parseCommand;
+
+  //
+  // Setup restart timing. These options control how quickly forever restarts
+  // a child process as well as when to kill a &#x22;spinning&#x22; process
+  //
+  this.minUptime     = typeof options.minUptime !== &#x27;number&#x27; ? 0 : options.minUptime;
+  this.spinSleepTime = options.spinSleepTime || null;
+
+  //
+  // Special case Windows separately to decouple any
+  // future changes
+  //
+  if (process.platform === &#x27;win32&#x27;) {
+    execPath = &#x27;&#x22;&#x27; + execPath + &#x27;&#x22;&#x27;;
+  }
+
+  if (options.options) {
+    console.warn(&#x27;options.options is deprecated. Use options.args instead.&#x27;);
+  }
+
+  //
+  // Setup the command to spawn and the options to pass
+  // to that command.
+  //
+  this.command   = options.command || execPath;
+  this.args      = options.args || options.options || [];
+  this.spawnWith = options.spawnWith || {};
+  this.sourceDir = options.sourceDir;
+  this.fork      = options.fork || false;
+  this.cwd       = options.cwd || process.cwd();
+  this.hideEnv   = options.hideEnv || [];
+  this._env      = options.env || {};
+  this._hideEnv  = {};
+
+  //
+  // Allow for custom stdio configuration of forked processes
+  //
+  this.stdio = options.stdio || null;
+
+  //
+  // Setup watch configuration options
+  //
+  this.watchIgnoreDotFiles = options.watchIgnoreDotFiles !== false;
+  this.watchIgnorePatterns = options.watchIgnorePatterns || [];
+  this.watchDirectory      = options.watchDirectory || this.sourceDir;
+
+  //
+  // Create a simple mapping of `this.hideEnv` to an easily indexable
+  // object
+  //
+  this.hideEnv.forEach(function (key) {
+    self._hideEnv[key] = true;
+  });
+
+  if (Array.isArray(script)) {
+    this.command = script[0];
+    this.args = script.slice(1);
+  }
+  else {
+    this.args.unshift(script);
+  }
+
+  if (this.sourceDir) {
+    this.args[0] = path.join(this.sourceDir, this.args[0]);
+  }
+
+  //
+  // Bootstrap this instance now that options
+  // have been set
+  //
+  broadway.App.call(this, { bootstrapper: { bootstrap: bootstrap } });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor" id="apidoc.element.forever.Monitor">
+        function <span class="apidocSignatureSpan">forever.</span>Monitor
+        <span class="apidocSignatureSpan">(script, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Monitor = function (script, options) {
+  //
+  // Simple bootstrapper for attaching logger
+  // and watch plugins by default. Other plugins
+  // can be attached through `monitor.use(plugin, options)`.
+  //
+  function bootstrap(monitor) {
+    plugins.logger.attach.call(monitor, options);
+    if (options.watch) {
+      plugins.watch.attach.call(monitor, options);
+    }
+  }
+
+  var execPath = process.execPath,
+      self     = this;
+
+  //
+  // Setup basic configuration options
+  //
+  options               = options || {};
+  this.silent           = options.silent || false;
+  this.killTree         = options.killTree !== false;
+  this.uid              = options.uid || utile.randomString(4);
+  this.id               = options.id || false;
+  this.pidFile          = options.pidFile;
+  this.max              = options.max;
+  this.killTTL          = options.killTTL;
+  this.killSignal       = options.killSignal || &#x27;SIGKILL&#x27;;
+  this.childExists      = false;
+  this.checkFile        = options.checkFile !== false;
+  this.times            = 0;
+  this.warn             = console.error;
+
+  this.logFile          = options.logFile;
+  this.outFile          = options.outFile;
+  this.errFile          = options.errFile;
+  this.append           = options.append;
+  this.usePolling       = options.usePolling;
+  this.pollingInterval  = options.pollingInterval;
+
+  //
+  // Define some safety checks for commands with spaces
+  //
+  this.parser = options.parser || Monitor.parseCommand;
+
+  //
+  // Setup restart timing. These options control how quickly forever restarts
+  // a child process as well as when to kill a &#x22;spinning&#x22; process
+  //
+  this.minUptime     = typeof options.minUptime !== &#x27;number&#x27; ? 0 : options.minUptime;
+  this.spinSleepTime = options.spinSleepTime || null;
+
+  //
+  // Special case Windows separately to decouple any
+  // future changes
+  //
+  if (process.platform === &#x27;win32&#x27;) {
+    execPath = &#x27;&#x22;&#x27; + execPath + &#x27;&#x22;&#x27;;
+  }
+
+  if (options.options) {
+    console.warn(&#x27;options.options is deprecated. Use options.args instead.&#x27;);
+  }
+
+  //
+  // Setup the command to spawn and the options to pass
+  // to that command.
+  //
+  this.command   = options.command || execPath;
+  this.args      = options.args || options.options || [];
+  this.spawnWith = options.spawnWith || {};
+  this.sourceDir = options.sourceDir;
+  this.fork      = options.fork || false;
+  this.cwd       = options.cwd || process.cwd();
+  this.hideEnv   = options.hideEnv || [];
+  this._env      = options.env || {};
+  this._hideEnv  = {};
+
+  //
+  // Allow for custom stdio configuration of forked processes
+  //
+  this.stdio = options.stdio || null;
+
+  //
+  // Setup watch configuration options
+  //
+  this.watchIgnoreDotFiles = options.watchIgnoreDotFiles !== false;
+  this.watchIgnorePatterns = options.watchIgnorePatterns || [];
+  this.watchDirectory      = options.watchDirectory || this.sourceDir;
+
+  //
+  // Create a simple mapping of `this.hideEnv` to an easily indexable
+  // object
+  //
+  this.hideEnv.forEach(function (key) {
+    self._hideEnv[key] = true;
+  });
+
+  if (Array.isArray(script)) {
+    this.command = script[0];
+    this.args = script.slice(1);
+  }
+  else {
+    this.args.unshift(script);
+  }
+
+  if (this.sourceDir) {
+    this.args[0] = path.join(this.sourceDir, this.args[0]);
+  }
+
+  //
+  // Bootstrap this instance now that options
+  // have been set
+  //
+  broadway.App.call(this, { bootstrapper: { bootstrap: bootstrap } });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_" id="apidoc.element.forever.Monitor.super_">
+        function <span class="apidocSignatureSpan">forever.</span>Monitor.super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Monitor.super_ = function (options) {
+  //
+  // Setup options and `App` constants.
+  //
+  options        = options || {};
+  this.root      = options.root;
+  this.delimiter = options.delimiter || &#x27;::&#x27;;
+
+  //
+  // Inherit from `EventEmitter2`
+  //
+  events.EventEmitter2.call(this, {
+    delimiter: this.delimiter,
+    wildcard: true
+  });
+
+  //
+  // Setup other relevant options such as the plugins
+  // for this instance.
+  //
+  this.options      = options;
+  this.env          = options.env || process.env[&#x27;NODE_ENV&#x27;] || &#x27;development&#x27;
+  this.plugins      = options.plugins || {};
+  this.initialized  = false;
+  this.bootstrapper = options.bootstrapper || bootstrapper;
+  this.initializers = {};
+  this.initlist     = [];
+
+  //
+  // Bootstrap this instance
+  //
+  this.bootstrapper.bootstrap(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Worker" id="apidoc.element.forever.Worker">
+        function <span class="apidocSignatureSpan">forever.</span>Worker
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Worker = function (options) {
+  events.EventEmitter.call(this);
+  options = options || {};
+
+  this.monitor  = options.monitor;
+  this.sockPath = options.sockPath || forever.config.get(&#x27;sockPath&#x27;);
+  this.exitOnStop = options.exitOnStop === true;
+
+  this._socket = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever._debug" id="apidoc.element.forever._debug">
+        function <span class="apidocSignatureSpan">forever.</span>_debug
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_debug = function () {
+  var debug = forever.config.get(&#x27;debug&#x27;);
+
+  if (!debug) {
+    forever.config.set(&#x27;debug&#x27;, true);
+    forever.log.add(winston.transports.File, {
+      level: &#x27;silly&#x27;,
+      filename: path.join(forever.config.get(&#x27;root&#x27;), &#x27;forever.debug.log&#x27;)
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.checkProcess" id="apidoc.element.forever.checkProcess">
+        function <span class="apidocSignatureSpan">forever.</span>checkProcess
+        <span class="apidocSignatureSpan">(pid)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkProcess = function (pid) {
+  if (!pid) {
+    return false;
+  }
+
+  try {
+    //
+    // Trying to kill non-existent process here raises a ESRCH - no such
+    // process exception. Also, signal 0 doesn&#x27;t do no harm to a process - it
+    // only checks if sending a signal to a given process is possible.
+    //
+    process.kill(pid, 0);
+    return true;
+  }
+  catch (err) {
+    return false;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cleanLogsSync" id="apidoc.element.forever.cleanLogsSync">
+        function <span class="apidocSignatureSpan">forever.</span>cleanLogsSync
+        <span class="apidocSignatureSpan">(processes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanLogsSync = function (processes) {
+  var root = forever.config.get(&#x27;root&#x27;),
+      files = fs.readdirSync(root),
+      running,
+      runningLogs;
+
+  running = processes &#x26;&#x26; processes.filter(function (p) {
+    return p &#x26;&#x26; p.logFile;
+  });
+
+  runningLogs = running &#x26;&#x26; running.map(function (p) {
+    return p.logFile.split(&#x27;/&#x27;).pop();
+  });
+
+  files.forEach(function (file) {
+    if (/\.log$/.test(file) &#x26;&#x26; (!runningLogs || runningLogs.indexOf(file) === -1)) {
+      fs.unlinkSync(path.join(root, file));
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cleanUp" id="apidoc.element.forever.cleanUp">
+        function <span class="apidocSignatureSpan">forever.</span>cleanUp
+        <span class="apidocSignatureSpan">(cleanLogs, allowManager)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanUp = function (cleanLogs, allowManager) {
+  var emitter = new events.EventEmitter(),
+      pidPath = forever.config.get(&#x27;pidPath&#x27;);
+
+  getAllProcesses(function (err, processes) {
+    if (err) {
+      return process.nextTick(function () {
+        emitter.emit(&#x27;error&#x27;, err);
+      });
+    }
+    else if (cleanLogs) {
+      forever.cleanLogsSync(processes);
+    }
+
+    function unlinkProcess(proc, done) {
+      fs.unlink(path.join(pidPath, proc.uid + &#x27;.pid&#x27;), function () {
+        //
+        // Ignore errors (in case the file doesnt exist).
+        //
+
+        if (cleanLogs &#x26;&#x26; proc.logFile) {
+          //
+          // If we are cleaning logs then do so if the process
+          // has a logfile.
+          //
+          return fs.unlink(proc.logFile, function () {
+            done();
+          });
+        }
+
+        done();
+      });
+    }
+
+    function cleanProcess(proc, done) {
+      if (proc.child &#x26;&#x26; proc.manager) {
+        return done();
+      }
+      else if (!proc.child &#x26;&#x26; !proc.manager
+        || (!proc.child &#x26;&#x26; proc.manager &#x26;&#x26; allowManager)
+        || proc.dead) {
+        return unlinkProcess(proc, done);
+      }
+
+      //
+      // If we have a manager but no child, wait a moment
+      // in-case the child is currently restarting, but **only**
+      // if we have not already waited for this process
+      //
+      if (!proc.waited) {
+        proc.waited = true;
+        return setTimeout(function () {
+          checkProcess(proc, done);
+        }, 500);
+      }
+
+      done();
+    }
+
+    function checkProcess(proc, next) {
+      proc.child = forever.checkProcess(proc.pid);
+      proc.manager = forever.checkProcess(proc.foreverPid);
+      cleanProcess(proc, next);
+    }
+
+    if (processes &#x26;&#x26; processes.length &#x3e; 0) {
+      (function cleanBatch(batch) {
+        async.forEach(batch, checkProcess, function () {
+          return processes.length &#x3e; 0
+            ? cleanBatch(processes.splice(0, 10))
+            : emitter.emit(&#x27;cleanUp&#x27;);
+        });
+      })(processes.splice(0, 10));
+    }
+    else {
+      process.nextTick(function () {
+        emitter.emit(&#x27;cleanUp&#x27;);
+      });
+    }
+  });
+
+  return emitter;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.findById" id="apidoc.element.forever.findById">
+        function <span class="apidocSignatureSpan">forever.</span>findById
+        <span class="apidocSignatureSpan">(id, processes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findById = function (id, processes) {
+  if (!processes) { return null; }
+
+  var procs = processes.filter(function (p) {
+    return p.id === id;
+  });
+
+  if (procs.length === 0) { procs = null; }
+  return procs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.findByIndex" id="apidoc.element.forever.findByIndex">
+        function <span class="apidocSignatureSpan">forever.</span>findByIndex
+        <span class="apidocSignatureSpan">(index, processes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findByIndex = function (index, processes) {
+  var indexAsNum = parseInt(index, 10),
+      proc;
+
+  if (indexAsNum == index) {
+    proc = processes &#x26;&#x26; processes[indexAsNum];
+  }
+  return proc ? [proc] : null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.findByPid" id="apidoc.element.forever.findByPid">
+        function <span class="apidocSignatureSpan">forever.</span>findByPid
+        <span class="apidocSignatureSpan">(pid, processes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findByPid = function (pid, processes) {
+  pid = typeof pid === &#x27;string&#x27;
+    ? parseInt(pid, 10)
+    : pid;
+
+  var procs = processes &#x26;&#x26; processes.filter(function (p) {
+    return p.pid === pid;
+  });
+
+  if (procs &#x26;&#x26; procs.length === 0) { procs = null; }
+  return procs || null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.findByScript" id="apidoc.element.forever.findByScript">
+        function <span class="apidocSignatureSpan">forever.</span>findByScript
+        <span class="apidocSignatureSpan">(script, processes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findByScript = function (script, processes) {
+  if (!processes) { return null; }
+
+  // make script absolute.
+  if (script.indexOf(&#x27;/&#x27;) != 0) {
+    script = path.resolve(process.cwd(), script);
+  }
+
+  var procs = processes.filter(function (p) {
+    return p.file === script || path.join(p.spawnWith.cwd, p.file) === script;
+  });
+
+  if (procs.length === 0) { procs = null; }
+  return procs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.findByUid" id="apidoc.element.forever.findByUid">
+        function <span class="apidocSignatureSpan">forever.</span>findByUid
+        <span class="apidocSignatureSpan">(script, processes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findByUid = function (script, processes) {
+  var procs = !processes
+    ? null
+    : processes.filter(function (p) {
+      return p.uid === script;
+    });
+
+  if (procs &#x26;&#x26; procs.length === 0) { procs = null; }
+  return procs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.format" id="apidoc.element.forever.format">
+        function <span class="apidocSignatureSpan">forever.</span>format
+        <span class="apidocSignatureSpan">(format, procs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">format = function (format, procs) {
+  if (!procs || procs.length === 0) {
+    return null;
+  }
+
+  var index = 0,
+      columns = forever.config.get(&#x27;columns&#x27;),
+      rows = [[&#x27;   &#x27;].concat(columns)],
+      formatted;
+
+  function mapColumns(prefix, mapFn) {
+    return [prefix].concat(columns.map(mapFn));
+  }
+
+  if (format) {
+    //
+    // Iterate over the procs to see which has the
+    // longest options string
+    //
+    procs.forEach(function (proc) {
+      rows.push(mapColumns(&#x27;[&#x27; + index + &#x27;]&#x27;, function (column) {
+        return forever.columns[column]
+          ? forever.columns[column].get(proc)
+          : &#x27;MISSING&#x27;;
+      }));
+
+      index++;
+    });
+
+    formatted = cliff.stringifyRows(rows, mapColumns(&#x27;white&#x27;, function (column) {
+      return forever.columns[column]
+        ? forever.columns[column].color
+        : &#x27;white&#x27;;
+    }));
+  }
+
+  return format ? formatted : procs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.kill" id="apidoc.element.forever.kill">
+        function <span class="apidocSignatureSpan">forever.</span>kill
+        <span class="apidocSignatureSpan">(pid, killTree, signal, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">kill = function (pid, killTree, signal, callback) {
+  signal   = signal   || &#x27;SIGKILL&#x27;;
+  callback = callback || function () {};
+
+  if (killTree &#x26;&#x26; process.platform !== &#x27;win32&#x27;) {
+    psTree(pid, function (err, children) {
+      [pid].concat(
+        children.map(function (p) {
+          return p.PID;
+        })
+      ).forEach(function (tpid) {
+        try { process.kill(tpid, signal) }
+        catch (ex) { }
+      });
+
+      callback();
+    });
+  }
+  else {
+    try { process.kill(pid, signal) }
+    catch (ex) { }
+    callback();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.list" id="apidoc.element.forever.list">
+        function <span class="apidocSignatureSpan">forever.</span>list
+        <span class="apidocSignatureSpan">(format, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function (format, callback) {
+  getAllProcesses(function (err, processes) {
+    callback(err, forever.format(format, processes));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+]
+```
+
+### Using In Your Code
+The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emits
+ when complete. See the [forever cli commands][2] for sample usage.
+
+**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.<span class="apidocCodeKeywordSpan">
+list</span>()`. In order to get your processes into `forever.list()` or `forever list` you must instantiate the `forever` socket
+ server:
+
+``` js
+  forever.startServer(child);
+```
+
+This method takes multiple `forever.Monitor` instances which are defined in the `forever-monitor` dependency.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.load" id="apidoc.element.forever.load">
+        function <span class="apidocSignatureSpan">forever.</span>load
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">load = function (options) {
+  // memorize current options.
+  this._loadedOptions = options;
+
+  //
+  // Setup the incoming options with default options.
+  //
+  options           = options           || {};
+  options.loglength = options.loglength || 100;
+  options.logstream = options.logstream || false;
+  options.root      = options.root      || forever.root;
+  options.pidPath   = options.pidPath   || path.join(options.root, &#x27;pids&#x27;);
+  options.sockPath  = options.sockPath  || path.join(options.root, &#x27;sock&#x27;);
+
+  //
+  // If forever is initalized and the config directories are identical
+  // simply return without creating directories
+  //
+  if (forever.initialized &#x26;&#x26; forever.config.get(&#x27;root&#x27;) === options.root &#x26;&#x26;
+    forever.config.get(&#x27;pidPath&#x27;) === options.pidPath) {
+    return;
+  }
+
+  forever.config = new nconf.File({ file: path.join(options.root, &#x27;config.json&#x27;) });
+
+  //
+  // Try to load the forever `config.json` from
+  // the specified location.
+  //
+  try {
+    forever.config.loadSync();
+  }
+  catch (ex) { }
+
+  //
+  // Setup the columns for `forever list`.
+  //
+  options.columns  = options.columns  || forever.config.get(&#x27;columns&#x27;);
+  if (!options.columns) {
+    options.columns = [
+      &#x27;uid&#x27;, &#x27;command&#x27;, &#x27;script&#x27;, &#x27;forever&#x27;, &#x27;pid&#x27;, &#x27;id&#x27;, &#x27;logfile&#x27;, &#x27;uptime&#x27;
+    ];
+  }
+
+  forever.config.set(&#x27;root&#x27;, options.root);
+  forever.config.set(&#x27;pidPath&#x27;, options.pidPath);
+  forever.config.set(&#x27;sockPath&#x27;, options.sockPath);
+  forever.config.set(&#x27;loglength&#x27;, options.loglength);
+  forever.config.set(&#x27;logstream&#x27;, options.logstream);
+  forever.config.set(&#x27;columns&#x27;, options.columns);
+
+  //
+  // Setup timestamp to event logger
+  //
+  forever.out.transports.console.timestamp = forever.config.get(&#x27;timestamp&#x27;) === &#x27;true&#x27;;
+
+  //
+  // Attempt to see if `forever` has been configured to
+  // run in debug mode.
+  //
+  options.debug = options.debug || forever.config.get(&#x27;debug&#x27;) || false;
+
+  if (options.debug) {
+    //
+    // If we have been indicated to debug this forever process
+    // then setup `forever._debug` to be an instance of `winston.Logger`.
+    //
+    forever._debug();
+  }
+
+  //
+  // Syncronously create the `root` directory
+  // and the `pid` directory for forever. Although there is
+  // an additional overhead here of the sync action. It simplifies
+  // the setup of forever dramatically.
+  //
+  function tryCreate(dir) {
+    try {
+      fs.mkdirSync(dir, &#x27;0755&#x27;);
+    }
+    catch (ex) { }
+  }
+
+  tryCreate(forever.config.get(&#x27;root&#x27;));
+  tryCreate(forever.config.get(&#x27;pidPath&#x27;));
+  tryCreate(forever.config.get(&#x27;sockPath&#x27;));
+
+  //
+  // Attempt to save the new `config.json` for forever
+  //
+  try {
+    forever.config.saveSync();
+  }
+  catch (ex) { }
+
+  forever.initialized = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.logEvents" id="apidoc.element.forever.logEvents">
+        function <span class="apidocSignatureSpan">forever.</span>logEvents
+        <span class="apidocSignatureSpan">(monitor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logEvents = function (monitor) {
+  monitor.on(&#x27;watch:error&#x27;, function (info) {
+    forever.out.error(info.message);
+    forever.out.error(info.error);
+  });
+
+  monitor.on(&#x27;watch:restart&#x27;, function (info) {
+    forever.out.error(&#x27;restarting script because &#x27; + info.file + &#x27; changed&#x27;);
+  });
+
+  monitor.on(&#x27;restart&#x27;, function () {
+    forever.out.error(&#x27;Script restart attempt #&#x27; + monitor.times);
+  });
+
+  monitor.on(&#x27;exit:code&#x27;, function (code, signal) {
+    forever.out.error((code !== null &#x26;&#x26; code !== undefined)
+      ? &#x27;Forever detected script exited with code: &#x27; + code
+      : &#x27;Forever detected script was killed by signal: &#x27; + signal);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.logFilePath" id="apidoc.element.forever.logFilePath">
+        function <span class="apidocSignatureSpan">forever.</span>logFilePath
+        <span class="apidocSignatureSpan">(logFile, uid)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logFilePath = function (logFile, uid) {
+  return logFile &#x26;&#x26; (logFile[0] === &#x27;/&#x27; || logFile[1] === &#x27;:&#x27;)
+    ? logFile
+    : path.join(forever.config.get(&#x27;root&#x27;), logFile || (uid || &#x27;forever&#x27;) + &#x27;.log&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.pidFilePath" id="apidoc.element.forever.pidFilePath">
+        function <span class="apidocSignatureSpan">forever.</span>pidFilePath
+        <span class="apidocSignatureSpan">(pidFile)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pidFilePath = function (pidFile) {
+  return pidFile &#x26;&#x26; (pidFile[0] === &#x27;/&#x27; || pidFile[1] === &#x27;:&#x27;)
+    ? pidFile
+    : path.join(forever.config.get(&#x27;pidPath&#x27;), pidFile);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.restart" id="apidoc.element.forever.restart">
+        function <span class="apidocSignatureSpan">forever.</span>restart
+        <span class="apidocSignatureSpan">(target, format)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restart = function (target, format) {
+  return stopOrRestart(&#x27;restart&#x27;, &#x27;restart&#x27;, format, target);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.restartAll" id="apidoc.element.forever.restartAll">
+        function <span class="apidocSignatureSpan">forever.</span>restartAll
+        <span class="apidocSignatureSpan">(format)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restartAll = function (format) {
+  return stopOrRestart(&#x27;restart&#x27;, &#x27;restartAll&#x27;, format);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.start" id="apidoc.element.forever.start">
+        function <span class="apidocSignatureSpan">forever.</span>start
+        <span class="apidocSignatureSpan">(script, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (script, options) {
+  if (!options.uid) {
+    options.uid = utile.randomString(4).replace(/^\-/, &#x27;_&#x27;);
+  }
+
+  if (!options.logFile) {
+    options.logFile = forever.logFilePath(options.uid + &#x27;.log&#x27;);
+  }
+
+  //
+  // Create the monitor, log events, and start.
+  //
+  var monitor = new forever.Monitor(script, options);
+  forever.logEvents(monitor);
+  return monitor.start();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.startDaemon" id="apidoc.element.forever.startDaemon">
+        function <span class="apidocSignatureSpan">forever.</span>startDaemon
+        <span class="apidocSignatureSpan">(script, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">startDaemon = function (script, options) {
+  options         = options || {};
+  options.uid     = options.uid || utile.randomString(4).replace(/^\-/, &#x27;_&#x27;);
+  options.logFile = forever.logFilePath(options.logFile || forever.config.get(&#x27;logFile&#x27;) || options.uid + &#x27;.log&#x27;);
+  options.pidFile = forever.pidFilePath(options.pidFile || forever.config.get(&#x27;pidFile&#x27;) || options.uid + &#x27;.pid&#x27;);
+
+  var monitor, outFD, errFD, monitorPath;
+
+  //
+  // This log file is forever&#x27;s log file - the user&#x27;s outFile and errFile
+  // options are not taken into account here.  This will be an aggregate of all
+  // the app&#x27;s output, as well as messages from the monitor process, where
+  // applicable.
+  //
+  outFD = fs.openSync(options.logFile, &#x27;a&#x27;);
+  errFD = fs.openSync(options.logFile, &#x27;a&#x27;);
+  monitorPath = path.resolve(__dirname, &#x27;..&#x27;, &#x27;bin&#x27;, &#x27;monitor&#x27;);
+
+  monitor = spawn(process.execPath, [monitorPath, script], {
+    stdio: [&#x27;ipc&#x27;, outFD, errFD],
+    detached: true
+  });
+
+  monitor.on(&#x27;exit&#x27;, function (code) {
+    console.error(&#x27;Monitor died unexpectedly with exit code %d&#x27;, code);
+  });
+
+  // transmit options to daemonic(child) process, keep configuration lineage.
+  options._loadedOptions = this._loadedOptions;
+
+  monitor.send(JSON.stringify(options));
+
+  // close the ipc communication channel with the monitor
+  // otherwise the corresponding events listeners will prevent
+  // the exit of the current process (observed with node 0.11.9)
+  monitor.disconnect();
+
+  // make sure the monitor is unref() and does not prevent the
+  // exit of the current process
+  monitor.unref();
+
+  return monitor;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.startServer" id="apidoc.element.forever.startServer">
+        function <span class="apidocSignatureSpan">forever.</span>startServer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">startServer = function () {
+  var args = Array.prototype.slice.call(arguments),
+      monitors = [],
+      callback;
+
+  args.forEach(function (a) {
+    if (Array.isArray(a)) {
+      monitors = monitors.concat(a.filter(function (m) {
+        return m instanceof forever.Monitor;
+      }));
+    }
+    else if (a instanceof forever.Monitor) {
+      monitors.push(a);
+    }
+    else if (typeof a === &#x27;function&#x27;) {
+      callback = a;
+    }
+  });
+
+  async.map(monitors, function (monitor, next) {
+    var worker = new forever.Worker({
+      monitor: monitor,
+      sockPath: forever.config.get(&#x27;sockPath&#x27;),
+      exitOnStop: true
+    });
+
+    worker.start(function (err) {
+      return err ? next(err) : next(null, worker);
+    });
+  }, callback || function () {});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Using In Your Code
+The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emits
+ when complete. See the [forever cli commands][2] for sample usage.
+
+**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.list()`. In order to get your processes
+ into `forever.list()` or `forever list` you must instantiate the `forever` socket server:
+
+``` js
+  forever.<span class="apidocCodeKeywordSpan">startServer</span>(child);
+```
+
+This method takes multiple `forever.Monitor` instances which are defined in the `forever-monitor` dependency.
+
+#### forever.load (config)
+_Synchronously_ sets the specified configuration (config) for the forever module. There are two important options:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.stat" id="apidoc.element.forever.stat">
+        function <span class="apidocSignatureSpan">forever.</span>stat
+        <span class="apidocSignatureSpan">(logFile, script, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stat = function (logFile, script, callback) {
+  var logAppend;
+
+  if (arguments.length === 4) {
+    logAppend = callback;
+    callback = arguments[3];
+  }
+
+  fs.stat(script, function (err, stats) {
+    if (err) {
+      return callback(new Error(&#x27;script &#x27; + script + &#x27; does not exist.&#x27;));
+    }
+
+    return logAppend ? callback(null) : fs.stat(logFile, function (err, stats) {
+      return !err
+        ? callback(new Error(&#x27;log file &#x27; + logFile + &#x27; exists. Use the -a or --append option to append log.&#x27;))
+        : callback(null);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.stop" id="apidoc.element.forever.stop">
+        function <span class="apidocSignatureSpan">forever.</span>stop
+        <span class="apidocSignatureSpan">(target, format)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (target, format) {
+  return stopOrRestart(&#x27;stop&#x27;, &#x27;stop&#x27;, format, target);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.stopAll" id="apidoc.element.forever.stopAll">
+        function <span class="apidocSignatureSpan">forever.</span>stopAll
+        <span class="apidocSignatureSpan">(format)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stopAll = function (format) {
+  return stopOrRestart(&#x27;stop&#x27;, &#x27;stopAll&#x27;, format);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.stopbypid" id="apidoc.element.forever.stopbypid">
+        function <span class="apidocSignatureSpan">forever.</span>stopbypid
+        <span class="apidocSignatureSpan">(pid, format)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stopbypid = function (pid, format) {
+  // stopByPid only capable of stopping, but can&#x27;t restart
+  return stopOrRestart(&#x27;stop&#x27;, &#x27;stopByPid&#x27;, format, pid);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.tail" id="apidoc.element.forever.tail">
+        function <span class="apidocSignatureSpan">forever.</span>tail
+        <span class="apidocSignatureSpan">(target, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tail = function (target, options, callback) {
+  if (!callback &#x26;&#x26; typeof options === &#x27;function&#x27;) {
+    callback = options;
+    options.length = 0;
+    options.stream = false;
+  }
+
+  var that   = this,
+      length = options.length || forever.config.get(&#x27;loglength&#x27;),
+      stream = options.stream || forever.config.get(&#x27;logstream&#x27;),
+      blanks = function (e, i, a) { return e !== &#x27;&#x27;; },
+      title  = function (e, i, a) { return e.match(/^==&#x3e;/); },
+      args   = [&#x27;-n&#x27;, length],
+      logs;
+
+  if (stream) { args.unshift(&#x27;-f&#x27;); }
+
+  function tailProcess(procs, next) {
+    var count = 0,
+        map   = {},
+        tail;
+
+    procs.forEach(function (proc) {
+      args.push(proc.logFile);
+      map[proc.logFile] = { pid: proc.pid, file: proc.file };
+      count++;
+    });
+
+    tail = spawn(&#x27;tail&#x27;, args, {
+      stdio: [null, &#x27;pipe&#x27;, &#x27;pipe&#x27;],
+    });
+
+    tail.stdio[1].setEncoding(&#x27;utf8&#x27;);
+    tail.stdio[2].setEncoding(&#x27;utf8&#x27;);
+
+    tail.stdio[1].on(&#x27;data&#x27;, function (data) {
+      var chunk = data.split(&#x27;\n\n&#x27;);
+      chunk.forEach(function (logs) {
+        var logs = logs.split(&#x27;\n&#x27;).filter(blanks),
+            file = logs.filter(title),
+            lines,
+            proc;
+
+        proc = file.length
+          ? map[file[0].split(&#x27; &#x27;)[1]]
+          : map[procs[0].logFile];
+
+        lines = count !== 1
+          ? logs.slice(1)
+          : logs;
+
+        lines.forEach(function (line) {
+          callback(null, { file: proc.file, pid: proc.pid, line: line });
+        });
+      });
+    });
+
+    tail.stdio[2].on(&#x27;data&#x27;, function (err) {
+      return callback(err);
+    });
+  }
+
+  getAllProcesses(function (err, processes) {
+    if (err) {
+      return callback(err);
+    }
+    else if (!processes) {
+      return callback(new Error(&#x27;Cannot find forever process: &#x27; + target));
+    }
+
+    var procs = forever.findByIndex(target, processes)
+      || forever.findByScript(target, processes);
+
+    if (!procs) {
+      return callback(new Error(&#x27;No logs available for process: &#x27; + target));
+    }
+
+    tailProcess(procs, callback);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.Monitor" id="apidoc.module.forever.Monitor">module forever.Monitor</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.Monitor" id="apidoc.element.forever.Monitor.Monitor">
+        function <span class="apidocSignatureSpan">forever.</span>Monitor
+        <span class="apidocSignatureSpan">(script, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Monitor = function (script, options) {
+  //
+  // Simple bootstrapper for attaching logger
+  // and watch plugins by default. Other plugins
+  // can be attached through `monitor.use(plugin, options)`.
+  //
+  function bootstrap(monitor) {
+    plugins.logger.attach.call(monitor, options);
+    if (options.watch) {
+      plugins.watch.attach.call(monitor, options);
+    }
+  }
+
+  var execPath = process.execPath,
+      self     = this;
+
+  //
+  // Setup basic configuration options
+  //
+  options               = options || {};
+  this.silent           = options.silent || false;
+  this.killTree         = options.killTree !== false;
+  this.uid              = options.uid || utile.randomString(4);
+  this.id               = options.id || false;
+  this.pidFile          = options.pidFile;
+  this.max              = options.max;
+  this.killTTL          = options.killTTL;
+  this.killSignal       = options.killSignal || &#x27;SIGKILL&#x27;;
+  this.childExists      = false;
+  this.checkFile        = options.checkFile !== false;
+  this.times            = 0;
+  this.warn             = console.error;
+
+  this.logFile          = options.logFile;
+  this.outFile          = options.outFile;
+  this.errFile          = options.errFile;
+  this.append           = options.append;
+  this.usePolling       = options.usePolling;
+  this.pollingInterval  = options.pollingInterval;
+
+  //
+  // Define some safety checks for commands with spaces
+  //
+  this.parser = options.parser || Monitor.parseCommand;
+
+  //
+  // Setup restart timing. These options control how quickly forever restarts
+  // a child process as well as when to kill a &#x22;spinning&#x22; process
+  //
+  this.minUptime     = typeof options.minUptime !== &#x27;number&#x27; ? 0 : options.minUptime;
+  this.spinSleepTime = options.spinSleepTime || null;
+
+  //
+  // Special case Windows separately to decouple any
+  // future changes
+  //
+  if (process.platform === &#x27;win32&#x27;) {
+    execPath = &#x27;&#x22;&#x27; + execPath + &#x27;&#x22;&#x27;;
+  }
+
+  if (options.options) {
+    console.warn(&#x27;options.options is deprecated. Use options.args instead.&#x27;);
+  }
+
+  //
+  // Setup the command to spawn and the options to pass
+  // to that command.
+  //
+  this.command   = options.command || execPath;
+  this.args      = options.args || options.options || [];
+  this.spawnWith = options.spawnWith || {};
+  this.sourceDir = options.sourceDir;
+  this.fork      = options.fork || false;
+  this.cwd       = options.cwd || process.cwd();
+  this.hideEnv   = options.hideEnv || [];
+  this._env      = options.env || {};
+  this._hideEnv  = {};
+
+  //
+  // Allow for custom stdio configuration of forked processes
+  //
+  this.stdio = options.stdio || null;
+
+  //
+  // Setup watch configuration options
+  //
+  this.watchIgnoreDotFiles = options.watchIgnoreDotFiles !== false;
+  this.watchIgnorePatterns = options.watchIgnorePatterns || [];
+  this.watchDirectory      = options.watchDirectory || this.sourceDir;
+
+  //
+  // Create a simple mapping of `this.hideEnv` to an easily indexable
+  // object
+  //
+  this.hideEnv.forEach(function (key) {
+    self._hideEnv[key] = true;
+  });
+
+  if (Array.isArray(script)) {
+    this.command = script[0];
+    this.args = script.slice(1);
+  }
+  else {
+    this.args.unshift(script);
+  }
+
+  if (this.sourceDir) {
+    this.args[0] = path.join(this.sourceDir, this.args[0]);
+  }
+
+  //
+  // Bootstrap this instance now that options
+  // have been set
+  //
+  broadway.App.call(this, { bootstrapper: { bootstrap: bootstrap } });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.parseCommand" id="apidoc.element.forever.Monitor.parseCommand">
+        function <span class="apidocSignatureSpan">forever.Monitor.</span>parseCommand
+        <span class="apidocSignatureSpan">(command, args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseCommand = function (command, args) {
+  var match = command.match(
+    process.platform === &#x27;win32&#x27; ? safetyChecks.windows : safetyChecks.linux
+  );
+
+  //
+  // No match means it&#x27;s a bad command. This is configurable
+  // by passing a custom `parser` function into the `Monitor`
+  // constructor function.
+  //
+  if (!match) { return false; }
+
+  if (process.platform == &#x27;win32&#x27;) {
+    command = match[1] || match[2];
+    if (match[3]) {
+      args = match[3].split(&#x27; &#x27;).concat(args);
+    }
+  } else {
+    command = match[1];
+    if (match[2]) {
+      args = match[2].split(&#x27; &#x27;).concat(this.args);
+    }
+  }
+
+  return {
+    command: command,
+    args:    args
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_" id="apidoc.element.forever.Monitor.super_">
+        function <span class="apidocSignatureSpan">forever.Monitor.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function (options) {
+  //
+  // Setup options and `App` constants.
+  //
+  options        = options || {};
+  this.root      = options.root;
+  this.delimiter = options.delimiter || &#x27;::&#x27;;
+
+  //
+  // Inherit from `EventEmitter2`
+  //
+  events.EventEmitter2.call(this, {
+    delimiter: this.delimiter,
+    wildcard: true
+  });
+
+  //
+  // Setup other relevant options such as the plugins
+  // for this instance.
+  //
+  this.options      = options;
+  this.env          = options.env || process.env[&#x27;NODE_ENV&#x27;] || &#x27;development&#x27;
+  this.plugins      = options.plugins || {};
+  this.initialized  = false;
+  this.bootstrapper = options.bootstrapper || bootstrapper;
+  this.initializers = {};
+  this.initlist     = [];
+
+  //
+  // Bootstrap this instance
+  //
+  this.bootstrapper.bootstrap(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.Monitor.prototype" id="apidoc.module.forever.Monitor.prototype">module forever.Monitor.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.prototype._getEnv" id="apidoc.element.forever.Monitor.prototype._getEnv">
+        function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>_getEnv
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getEnv = function () {
+  var self = this,
+      merged = {};
+
+  function addKey(key, source) {
+    merged[key] = source[key];
+  }
+
+  //
+  // Mixin the key:value pairs from `process.env` and the custom
+  // environment variables in `this._env`.
+  //
+  Object.keys(process.env).forEach(function (key) {
+    if (!self._hideEnv[key]) {
+      addKey(key, process.env);
+    }
+  });
+
+  Object.keys(this._env).forEach(function (key) {
+    addKey(key, self._env);
+  });
+
+  return merged;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.prototype.kill" id="apidoc.element.forever.Monitor.prototype.kill">
+        function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>kill
+        <span class="apidocSignatureSpan">(forceStop)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">kill = function (forceStop) {
+  var child = this.child,
+      self = this,
+      timer;
+
+  if (!child || (!this.running &#x26;&#x26; !this.forceRestart)) {
+    process.nextTick(function () {
+      self.emit(&#x27;error&#x27;, new Error(&#x27;Cannot stop process that is not running.&#x27;));
+    });
+  }
+  else {
+    //
+    // Set an instance variable here to indicate this
+    // stoppage is forced so that when `child.on(&#x27;exit&#x27;, ..)`
+    // fires in `Monitor.prototype.start` we can short circuit
+    // and prevent auto-restart
+    //
+    if (forceStop) {
+      this.forceStop = true;
+      //
+      // If we have a time before we truly kill forcefully, set up a timer
+      //
+      if (this.killTTL) {
+        timer = setTimeout(function () {
+          common.kill(self.child.pid, self.killTree, self.killSignal || &#x27;SIGKILL&#x27;);
+        }, this.killTTL);
+
+        child.once(&#x27;exit&#x27;, function () {
+          clearTimeout(timer);
+        });
+      }
+    }
+
+    child.once(&#x27;exit&#x27;, function () {
+      self.emit(&#x27;stop&#x27;, self.childData);
+      if (self.forceRestart &#x26;&#x26; !self.running) {
+        self.start(true);
+      }
+    });
+
+    common.kill(this.child.pid, this.killTree, this.killSignal);
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.prototype.restart" id="apidoc.element.forever.Monitor.prototype.restart">
+        function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>restart
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restart = function () {
+  this.times = this.times || 0;
+  this.forceRestart = true;
+
+  return !this.running
+    ? this.start(true)
+    : this.kill(false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.prototype.send" id="apidoc.element.forever.Monitor.prototype.send">
+        function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>send
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">send = function (msg) {
+  var child = this.child,
+      self = this;
+
+  if (!child || !this.running) {
+    process.nextTick(function () {
+      self.emit(&#x27;error&#x27;, new Error(&#x27;Cannot send to process that is not running.&#x27;));
+    });
+  }
+
+  if (child.send) { child.send(msg) }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.prototype.start" id="apidoc.element.forever.Monitor.prototype.start">
+        function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>start
+        <span class="apidocSignatureSpan">(restart)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (restart) {
+  var self = this,
+      child;
+
+  if (this.running &#x26;&#x26; !restart) {
+    process.nextTick(function () {
+      self.emit(&#x27;error&#x27;, new Error(&#x27;Cannot start process that is already running.&#x27;));
+    });
+    return this;
+  }
+
+  child = this.trySpawn();
+  if (!child) {
+    process.nextTick(function () {
+      self.emit(&#x27;error&#x27;, new Error(&#x27;Target script does not exist: &#x27; + self.args[0]));
+    });
+    return this;
+  }
+
+  this.ctime = Date.now();
+  this.child = child;
+  this.running = true;
+  this.isMaster = cluster.isMaster;
+
+  process.nextTick(function () {
+    self.emit(restart ? &#x27;restart&#x27; : &#x27;start&#x27;, self, self.data);
+  });
+
+  function onMessage(msg) {
+    self.emit(&#x27;message&#x27;, msg);
+  }
+
+  // Re-emit messages from the child process
+  this.child.on(&#x27;message&#x27;, onMessage);
+
+  child.on(&#x27;exit&#x27;, function (code, signal) {
+    var spinning = Date.now() - self.ctime &#x3c; self.minUptime;
+    child.removeListener(&#x27;message&#x27;, onMessage);
+    self.emit(&#x27;exit:code&#x27;, code, signal);
+
+    function letChildDie() {
+      self.running = false;
+      self.forceStop = false;
+      self.emit(&#x27;exit&#x27;, self, spinning);
+    }
+
+    function restartChild() {
+      self.forceRestart = false;
+      process.nextTick(function () {
+        self.start(true);
+      });
+    }
+
+    self.times++;
+
+    if (self.forceStop || (self.times &#x3e;= self.max &#x26;&#x26; !self.forceRestart)
+      || (spinning &#x26;&#x26; typeof self.spinSleepTime !== &#x27;number&#x27;) &#x26;&#x26; !self.forceRestart) {
+      letChildDie();
+    }
+    else if (spinning) {
+      setTimeout(restartChild, self.spinSleepTime);
+    }
+    else {
+      restartChild();
+    }
+  });
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.prototype.stop" id="apidoc.element.forever.Monitor.prototype.stop">
+        function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>stop
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function () {
+  return this.kill(true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.prototype.toString" id="apidoc.element.forever.Monitor.prototype.toString">
+        function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  return JSON.stringify(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.prototype.trySpawn" id="apidoc.element.forever.Monitor.prototype.trySpawn">
+        function <span class="apidocSignatureSpan">forever.Monitor.prototype.</span>trySpawn
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trySpawn = function () {
+  var run = this.parser(this.command, this.args.slice()),
+      stats;
+
+  if (/[^\w]node$/.test(this.command) &#x26;&#x26; this.checkFile &#x26;&#x26; !this.childExists) {
+    try {
+      stats = fs.statSync(this.args[0]);
+      this.childExists = true;
+    }
+    catch (ex) {
+      return false;
+    }
+  }
+
+  this.spawnWith.cwd = this.spawnWith.cwd || this.cwd;
+  this.spawnWith.env = this._getEnv();
+
+  if (process.platform === &#x27;win32&#x27;) {
+    this.spawnWith.detached = true;
+  }
+
+  if (this.stdio) {
+    this.spawnWith.stdio = this.stdio;
+  }
+
+  if (this.fork) {
+    if (!this.stdio) {
+      this.spawnWith.stdio = [ &#x27;pipe&#x27;, &#x27;pipe&#x27;, &#x27;pipe&#x27;, &#x27;ipc&#x27; ];
+    }
+    return spawn(run.command, run.args, this.spawnWith);
+  }
+
+  return spawn(run.command, run.args, this.spawnWith);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.Monitor.super_" id="apidoc.module.forever.Monitor.super_">module forever.Monitor.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_" id="apidoc.element.forever.Monitor.super_.super_">
+        function <span class="apidocSignatureSpan">forever.Monitor.</span>super_
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter(conf) {
+  this._events = {};
+  this.newListener = false;
+  configure.call(this, conf);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.Monitor.super_.prototype" id="apidoc.module.forever.Monitor.super_.prototype">module forever.Monitor.super_.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.prototype.init" id="apidoc.element.forever.Monitor.super_.prototype.init">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>init
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (options, callback) {
+  if (!callback &#x26;&#x26; typeof options === &#x27;function&#x27;) {
+    callback = options;
+    options = {};
+  }
+
+  if (this.initialized) {
+    return callback();
+  }
+
+  var self = this;
+  options = options   || {};
+  callback = callback || function () {};
+  this.env = options.env || this.env;
+  this.options = common.mixin({}, this.options, options);
+
+  function onComplete() {
+    self.initialized = true;
+    self.emit(&#x27;init&#x27;);
+    callback();
+  }
+
+  function ensureFeatures (err) {
+    return err
+      ? onError(err)
+      : features.ensure(this, onComplete);
+  }
+
+  function initPlugin(plugin, next) {
+    if (typeof self.initializers[plugin] === &#x27;function&#x27;) {
+      return self.initializers[plugin].call(self, function (err) {
+        if (err) {
+          return next(err);
+        }
+
+        self.emit([&#x27;plugin&#x27;, plugin, &#x27;init&#x27;]);
+        self.initializers[plugin] = true;
+        next();
+      });
+    }
+
+    next();
+  }
+
+  function initPlugins() {
+    async.forEach(self.initlist, initPlugin, ensureFeatures);
+  }
+
+  //
+  // Emit and respond with any errors that may short
+  // circuit the process.
+  //
+  function onError(err) {
+    self.emit([&#x27;error&#x27;, &#x27;init&#x27;], err);
+    callback(err);
+  }
+
+  //
+  // Run the bootstrapper, initialize plugins, and
+  // ensure features for this instance.
+  //
+  this.bootstrapper.init(this, initPlugins);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.prototype.inspect" id="apidoc.element.forever.Monitor.super_.prototype.inspect">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>inspect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inspect = function () {
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.prototype.remove" id="apidoc.element.forever.Monitor.super_.prototype.remove">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>remove
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (name) {
+  // if this is a plugin object set the name to the plugins name
+  if (name.name) {
+    name = name.name;
+  }
+
+  if (this.plugins[name] &#x26;&#x26; this.plugins[name].detach) {
+    this.plugins[name].detach.call(this);
+  }
+
+  delete this.plugins[name];
+  delete this.options[name];
+  delete this.initializers[name];
+
+  var init = this.initlist.indexOf(name);
+
+  if (init !== -1) {
+    this.initlist.splice(1, init);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.prototype.use" id="apidoc.element.forever.Monitor.super_.prototype.use">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.prototype.</span>use
+        <span class="apidocSignatureSpan">(plugin, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">use = function (plugin, options, callback) {
+  options = options || {};
+
+  if (typeof plugin === &#x27;undefined&#x27;) {
+    console.log(&#x27;Cannot load invalid plugin!&#x27;);
+    return callback &#x26;&#x26; callback(new Error(&#x27;Invalid plugin&#x27;));
+  }
+
+  var name = plugin.name,
+      self = this;
+
+  // If the plugin doesn&#x27;t have a name, use itself as an identifier for the plugins hash.
+  if (!name) {
+    name = common.uuid();
+  }
+
+  if (this.plugins[name]) {
+    return callback &#x26;&#x26; callback();
+  }
+
+  //
+  // Setup state on this instance for the specified plugin
+  //
+  this.plugins[name] = plugin;
+  this.options[name] = common.mixin({}, options, this.options[name] || {});
+
+  //
+  // Attach the specified plugin to this instance, extending
+  // the `App` with new functionality.
+  //
+  if (this.plugins[name].attach &#x26;&#x26; options.attach !== false) {
+    this.plugins[name].attach.call(this, options);
+  }
+
+  //
+  // Setup the initializer only if `options.init` is
+  // not false. This allows for some plugins to be lazy-loaded
+  //
+  if (options.init === false) {
+    return callback &#x26;&#x26; callback();
+  }
+
+  if (!this.initialized) {
+    this.initializers[name] = plugin.init || true;
+    this.initlist.push(name);
+    return callback &#x26;&#x26; callback();
+  }
+  else if (plugin.init) {
+    plugin.init.call(this, function (err) {
+      var args = err
+        ? [[&#x27;plugin&#x27;, name, &#x27;error&#x27;], err]
+        : [[&#x27;plugin&#x27;, name, &#x27;init&#x27;]];
+
+      self.emit.apply(self, args);
+      return callback &#x26;&#x26; (err ? callback(err) : callback());
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.Monitor.super_.super_.prototype" id="apidoc.module.forever.Monitor.super_.super_.prototype">module forever.Monitor.super_.super_.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.addListener" id="apidoc.element.forever.Monitor.super_.super_.prototype.addListener">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>addListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addListener = function (type, listener) {
+
+  if (typeof type === &#x27;function&#x27;) {
+    this.onAny(type);
+    return this;
+  }
+
+  if (typeof listener !== &#x27;function&#x27;) {
+    throw new Error(&#x27;on only accepts instances of Function&#x27;);
+  }
+  this._events || init.call(this);
+
+  // To avoid recursion in the case that type == &#x22;newListeners&#x22;! Before
+  // adding it to the listeners, first emit &#x22;newListeners&#x22;.
+  this.emit(&#x27;newListener&#x27;, type, listener);
+
+  if(this.wildcard) {
+    growListenerTree.call(this, type, listener);
+    return this;
+  }
+
+  if (!this._events[type]) {
+    // Optimize the case of one listener. Don&#x27;t need the extra array object.
+    this._events[type] = listener;
+  }
+  else if(typeof this._events[type] === &#x27;function&#x27;) {
+    // Adding the second element, need to change to array.
+    this._events[type] = [this._events[type], listener];
+  }
+  else if (isArray(this._events[type])) {
+    // If we&#x27;ve already got an array, just append.
+    this._events[type].push(listener);
+
+    // Check for listener leak
+    if (!this._events[type].warned) {
+
+      var m = defaultMaxListeners;
+
+      if (typeof this._events.maxListeners !== &#x27;undefined&#x27;) {
+        m = this._events.maxListeners;
+      }
+
+      if (m &#x3e; 0 &#x26;&#x26; this._events[type].length &#x3e; m) {
+
+        this._events[type].warned = true;
+        console.error(&#x27;(node) warning: possible EventEmitter memory &#x27; +
+                      &#x27;leak detected. %d listeners added. &#x27; +
+                      &#x27;Use emitter.setMaxListeners() to increase limit.&#x27;,
+                      this._events[type].length);
+        console.trace();
+      }
+    }
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.emit" id="apidoc.element.forever.Monitor.super_.super_.prototype.emit">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>emit
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">emit = function () {
+
+  this._events || init.call(this);
+
+  var type = arguments[0];
+
+  if (type === &#x27;newListener&#x27; &#x26;&#x26; !this.newListener) {
+    if (!this._events.newListener) { return false; }
+  }
+
+  // Loop through the *_all* functions and invoke them.
+  if (this._all) {
+    var l = arguments.length;
+    var args = new Array(l - 1);
+    for (var i = 1; i &#x3c; l; i++) args[i - 1] = arguments[i];
+    for (i = 0, l = this._all.length; i &#x3c; l; i++) {
+      this.event = type;
+      this._all[i].apply(this, args);
+    }
+  }
+
+  // If there is no &#x27;error&#x27; event listener then throw.
+  if (type === &#x27;error&#x27;) {
+
+    if (!this._all &#x26;&#x26;
+      !this._events.error &#x26;&#x26;
+      !(this.wildcard &#x26;&#x26; this.listenerTree.error)) {
+
+      if (arguments[1] instanceof Error) {
+        throw arguments[1]; // Unhandled &#x27;error&#x27; event
+      } else {
+        throw new Error(&#x22;Uncaught, unspecified &#x27;error&#x27; event.&#x22;);
+      }
+      return false;
+    }
+  }
+
+  var handler;
+
+  if(this.wildcard) {
+    handler = [];
+    var ns = typeof type === &#x27;string&#x27; ? type.split(this.delimiter) : type.slice();
+    searchListenerTree.call(this, handler, ns, this.listenerTree, 0);
+  }
+  else {
+    handler = this._events[type];
+  }
+
+  if (typeof handler === &#x27;function&#x27;) {
+    this.event = type;
+    if (arguments.length === 1) {
+      handler.call(this);
+    }
+    else if (arguments.length &#x3e; 1)
+      switch (arguments.length) {
+        case 2:
+          handler.call(this, arguments[1]);
+          break;
+        case 3:
+          handler.call(this, arguments[1], arguments[2]);
+          break;
+        // slower
+        default:
+          var l = arguments.length;
+          var args = new Array(l - 1);
+          for (var i = 1; i &#x3c; l; i++) args[i - 1] = arguments[i];
+          handler.apply(this, args);
+      }
+    return true;
+  }
+  else if (handler) {
+    var l = arguments.length;
+    var args = new Array(l - 1);
+    for (var i = 1; i &#x3c; l; i++) args[i - 1] = arguments[i];
+
+    var listeners = handler.slice();
+    for (var i = 0, l = listeners.length; i &#x3c; l; i++) {
+      this.event = type;
+      listeners[i].apply(this, args);
+    }
+    return (listeners.length &#x3e; 0) || !!this._all;
+  }
+  else {
+    return !!this._all;
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.listeners" id="apidoc.element.forever.Monitor.super_.super_.prototype.listeners">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>listeners
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listeners = function (type) {
+  if(this.wildcard) {
+    var handlers = [];
+    var ns = typeof type === &#x27;string&#x27; ? type.split(this.delimiter) : type.slice();
+    searchListenerTree.call(this, handlers, ns, this.listenerTree, 0);
+    return handlers;
+  }
+
+  this._events || init.call(this);
+
+  if (!this._events[type]) this._events[type] = [];
+  if (!isArray(this._events[type])) {
+    this._events[type] = [this._events[type]];
+  }
+  return this._events[type];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.listenersAny" id="apidoc.element.forever.Monitor.super_.super_.prototype.listenersAny">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>listenersAny
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listenersAny = function () {
+
+  if(this._all) {
+    return this._all;
+  }
+  else {
+    return [];
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.many" id="apidoc.element.forever.Monitor.super_.super_.prototype.many">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>many
+        <span class="apidocSignatureSpan">(event, ttl, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">many = function (event, ttl, fn) {
+  var self = this;
+
+  if (typeof fn !== &#x27;function&#x27;) {
+    throw new Error(&#x27;many only accepts instances of Function&#x27;);
+  }
+
+  function listener() {
+    if (--ttl === 0) {
+      self.off(event, listener);
+    }
+    fn.apply(this, arguments);
+  }
+
+  listener._origin = fn;
+
+  this.on(event, listener);
+
+  return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.off" id="apidoc.element.forever.Monitor.super_.super_.prototype.off">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>off
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">off = function (type, listener) {
+  if (typeof listener !== &#x27;function&#x27;) {
+    throw new Error(&#x27;removeListener only takes instances of Function&#x27;);
+  }
+
+  var handlers,leafs=[];
+
+  if(this.wildcard) {
+    var ns = typeof type === &#x27;string&#x27; ? type.split(this.delimiter) : type.slice();
+    leafs = searchListenerTree.call(this, null, ns, this.listenerTree, 0);
+  }
+  else {
+    // does not use listeners(), so no side effect of creating _events[type]
+    if (!this._events[type]) return this;
+    handlers = this._events[type];
+    leafs.push({_listeners:handlers});
+  }
+
+  for (var iLeaf=0; iLeaf&#x3c;leafs.length; iLeaf++) {
+    var leaf = leafs[iLeaf];
+    handlers = leaf._listeners;
+    if (isArray(handlers)) {
+
+      var position = -1;
+
+      for (var i = 0, length = handlers.length; i &#x3c; length; i++) {
+        if (handlers[i] === listener ||
+          (handlers[i].listener &#x26;&#x26; handlers[i].listener === listener) ||
+          (handlers[i]._origin &#x26;&#x26; handlers[i]._origin === listener)) {
+          position = i;
+          break;
+        }
+      }
+
+      if (position &#x3c; 0) {
+        continue;
+      }
+
+      if(this.wildcard) {
+        leaf._listeners.splice(position, 1);
+      }
+      else {
+        this._events[type].splice(position, 1);
+      }
+
+      if (handlers.length === 0) {
+        if(this.wildcard) {
+          delete leaf._listeners;
+        }
+        else {
+          delete this._events[type];
+        }
+      }
+      return this;
+    }
+    else if (handlers === listener ||
+      (handlers.listener &#x26;&#x26; handlers.listener === listener) ||
+      (handlers._origin &#x26;&#x26; handlers._origin === listener)) {
+      if(this.wildcard) {
+        delete leaf._listeners;
+      }
+      else {
+        delete this._events[type];
+      }
+    }
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.offAny" id="apidoc.element.forever.Monitor.super_.super_.prototype.offAny">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>offAny
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">offAny = function (fn) {
+  var i = 0, l = 0, fns;
+  if (fn &#x26;&#x26; this._all &#x26;&#x26; this._all.length &#x3e; 0) {
+    fns = this._all;
+    for(i = 0, l = fns.length; i &#x3c; l; i++) {
+      if(fn === fns[i]) {
+        fns.splice(i, 1);
+        return this;
+      }
+    }
+  } else {
+    this._all = [];
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.on" id="apidoc.element.forever.Monitor.super_.super_.prototype.on">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>on
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">on = function (type, listener) {
+
+  if (typeof type === &#x27;function&#x27;) {
+    this.onAny(type);
+    return this;
+  }
+
+  if (typeof listener !== &#x27;function&#x27;) {
+    throw new Error(&#x27;on only accepts instances of Function&#x27;);
+  }
+  this._events || init.call(this);
+
+  // To avoid recursion in the case that type == &#x22;newListeners&#x22;! Before
+  // adding it to the listeners, first emit &#x22;newListeners&#x22;.
+  this.emit(&#x27;newListener&#x27;, type, listener);
+
+  if(this.wildcard) {
+    growListenerTree.call(this, type, listener);
+    return this;
+  }
+
+  if (!this._events[type]) {
+    // Optimize the case of one listener. Don&#x27;t need the extra array object.
+    this._events[type] = listener;
+  }
+  else if(typeof this._events[type] === &#x27;function&#x27;) {
+    // Adding the second element, need to change to array.
+    this._events[type] = [this._events[type], listener];
+  }
+  else if (isArray(this._events[type])) {
+    // If we&#x27;ve already got an array, just append.
+    this._events[type].push(listener);
+
+    // Check for listener leak
+    if (!this._events[type].warned) {
+
+      var m = defaultMaxListeners;
+
+      if (typeof this._events.maxListeners !== &#x27;undefined&#x27;) {
+        m = this._events.maxListeners;
+      }
+
+      if (m &#x3e; 0 &#x26;&#x26; this._events[type].length &#x3e; m) {
+
+        this._events[type].warned = true;
+        console.error(&#x27;(node) warning: possible EventEmitter memory &#x27; +
+                      &#x27;leak detected. %d listeners added. &#x27; +
+                      &#x27;Use emitter.setMaxListeners() to increase limit.&#x27;,
+                      this._events[type].length);
+        console.trace();
+      }
+    }
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.onAny" id="apidoc.element.forever.Monitor.super_.super_.prototype.onAny">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>onAny
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onAny = function (fn) {
+
+  if (typeof fn !== &#x27;function&#x27;) {
+    throw new Error(&#x27;onAny only accepts instances of Function&#x27;);
+  }
+
+  if(!this._all) {
+    this._all = [];
+  }
+
+  // Add the function to the event listener collection.
+  this._all.push(fn);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.once" id="apidoc.element.forever.Monitor.super_.super_.prototype.once">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>once
+        <span class="apidocSignatureSpan">(event, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">once = function (event, fn) {
+  this.many(event, 1, fn);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.removeAllListeners" id="apidoc.element.forever.Monitor.super_.super_.prototype.removeAllListeners">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>removeAllListeners
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeAllListeners = function (type) {
+  if (arguments.length === 0) {
+    !this._events || init.call(this);
+    return this;
+  }
+
+  if(this.wildcard) {
+    var ns = typeof type === &#x27;string&#x27; ? type.split(this.delimiter) : type.slice();
+    var leafs = searchListenerTree.call(this, null, ns, this.listenerTree, 0);
+
+    for (var iLeaf=0; iLeaf&#x3c;leafs.length; iLeaf++) {
+      var leaf = leafs[iLeaf];
+      leaf._listeners = null;
+    }
+  }
+  else {
+    if (!this._events[type]) return this;
+    this._events[type] = null;
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.removeListener" id="apidoc.element.forever.Monitor.super_.super_.prototype.removeListener">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>removeListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeListener = function (type, listener) {
+  if (typeof listener !== &#x27;function&#x27;) {
+    throw new Error(&#x27;removeListener only takes instances of Function&#x27;);
+  }
+
+  var handlers,leafs=[];
+
+  if(this.wildcard) {
+    var ns = typeof type === &#x27;string&#x27; ? type.split(this.delimiter) : type.slice();
+    leafs = searchListenerTree.call(this, null, ns, this.listenerTree, 0);
+  }
+  else {
+    // does not use listeners(), so no side effect of creating _events[type]
+    if (!this._events[type]) return this;
+    handlers = this._events[type];
+    leafs.push({_listeners:handlers});
+  }
+
+  for (var iLeaf=0; iLeaf&#x3c;leafs.length; iLeaf++) {
+    var leaf = leafs[iLeaf];
+    handlers = leaf._listeners;
+    if (isArray(handlers)) {
+
+      var position = -1;
+
+      for (var i = 0, length = handlers.length; i &#x3c; length; i++) {
+        if (handlers[i] === listener ||
+          (handlers[i].listener &#x26;&#x26; handlers[i].listener === listener) ||
+          (handlers[i]._origin &#x26;&#x26; handlers[i]._origin === listener)) {
+          position = i;
+          break;
+        }
+      }
+
+      if (position &#x3c; 0) {
+        continue;
+      }
+
+      if(this.wildcard) {
+        leaf._listeners.splice(position, 1);
+      }
+      else {
+        this._events[type].splice(position, 1);
+      }
+
+      if (handlers.length === 0) {
+        if(this.wildcard) {
+          delete leaf._listeners;
+        }
+        else {
+          delete this._events[type];
+        }
+      }
+      return this;
+    }
+    else if (handlers === listener ||
+      (handlers.listener &#x26;&#x26; handlers.listener === listener) ||
+      (handlers._origin &#x26;&#x26; handlers._origin === listener)) {
+      if(this.wildcard) {
+        delete leaf._listeners;
+      }
+      else {
+        delete this._events[type];
+      }
+    }
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Monitor.super_.super_.prototype.setMaxListeners" id="apidoc.element.forever.Monitor.super_.super_.prototype.setMaxListeners">
+        function <span class="apidocSignatureSpan">forever.Monitor.super_.super_.prototype.</span>setMaxListeners
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setMaxListeners = function (n) {
+  this._events || init.call(this);
+  this._events.maxListeners = n;
+  if (!this._conf) this._conf = {};
+  this._conf.maxListeners = n;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.Worker" id="apidoc.module.forever.Worker">module forever.Worker</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Worker.Worker" id="apidoc.element.forever.Worker.Worker">
+        function <span class="apidocSignatureSpan">forever.</span>Worker
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Worker = function (options) {
+  events.EventEmitter.call(this);
+  options = options || {};
+
+  this.monitor  = options.monitor;
+  this.sockPath = options.sockPath || forever.config.get(&#x27;sockPath&#x27;);
+  this.exitOnStop = options.exitOnStop === true;
+
+  this._socket = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Worker.super_" id="apidoc.element.forever.Worker.super_">
+        function <span class="apidocSignatureSpan">forever.Worker.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.Worker.prototype" id="apidoc.module.forever.Worker.prototype">module forever.Worker.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forever.Worker.prototype.start" id="apidoc.element.forever.Worker.prototype.start">
+        function <span class="apidocSignatureSpan">forever.Worker.prototype.</span>start
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (callback) {
+  var self = this,
+      err;
+
+  if (this._socket) {
+    err = new Error(&#x22;Can&#x27;t start already started worker&#x22;);
+    if (callback) {
+      return callback(err);
+    }
+
+    throw err;
+  }
+
+  //
+  // Defines a simple `nssocket` protocol for communication
+  // with a parent process.
+  //
+  function workerProtocol(socket) {
+    socket.on(&#x27;error&#x27;, function() {
+      socket.destroy();
+    });
+
+    socket.data([&#x27;ping&#x27;], function () {
+      socket.send([&#x27;pong&#x27;]);
+    });
+
+    socket.data([&#x27;data&#x27;], function () {
+      socket.send([&#x27;data&#x27;], self.monitor.data);
+    });
+
+    socket.data([&#x27;spawn&#x27;], function (data) {
+      if (!data.script) {
+        return socket.send([&#x27;spawn&#x27;, &#x27;error&#x27;], { error: new Error(&#x27;No script given&#x27;) });
+      }
+
+      if (self.monitor) {
+        return socket.send([&#x27;spawn&#x27;, &#x27;error&#x27;], { error: new Error(&#x22;Already running&#x22;) });
+      }
+
+      var monitor = new (forever.Monitor)(data.script, data.args);
+      monitor.start();
+
+      monitor.on(&#x27;start&#x27;, function () {
+        socket.send([&#x27;spawn&#x27;, &#x27;start&#x27;], monitor.data);
+      });
+    });
+
+    socket.data([&#x27;stop&#x27;], function () {
+      function onStop(err) {
+        var args = [];
+        if (err &#x26;&#x26; err instanceof Error) {
+          args.push([&#x27;stop&#x27;, &#x27;error&#x27;], { message: err.message, stack: err.stack });
+          self.monitor.removeListener(&#x27;stop&#x27;, onStop);
+        }
+        else {
+          args.push([&#x27;stop&#x27;, &#x27;ok&#x27;]);
+          self.monitor.removeListener(&#x27;error&#x27;, onStop);
+        }
+
+        socket.send.apply(socket, args);
+        if (self.exitOnStop) {
+          process.exit();
+        }
+      }
+
+      self.monitor.once(&#x27;stop&#x27;, onStop);
+      self.monitor.once(&#x27;error&#x27;, onStop);
+
+      if (process.platform === &#x27;win32&#x27;) {
+        //
+        // On Windows, delete the &#x27;symbolic&#x27; sock file. This
+        // file is used for exploration during `forever list`
+        // as a mapping to the `\\.pipe\\*` &#x22;files&#x22; that can&#x27;t
+        // be enumerated because ... Windows.
+        //
+        fs.unlink(self._sockFile);
+      }
+
+      self.monitor.stop();
+    });
+
+    socket.data([&#x27;restart&#x27;], function () {
+      self.monitor.once(&#x27;restart&#x27;, function () {
+        socket.send([&#x27;restart&#x27;, &#x27;ok&#x27;]);
+      });
+
+      self.monitor.restart();
+    });
+  }
+
+  function findAndStart() {
+    self._socket = nssocket.createServer(workerProtocol);
+    self._socket.on(&#x27;listening&#x27;, function () {
+      //
+      // `listening` listener doesn&#x27;t take error as the first parameter
+      //
+      self.emit(&#x27;start&#x27;);
+      if (callback) {
+        callback(null, self._sockFile);
+      }
+    });
+
+    self._socket.on(&#x27;error&#x27;, function (err) {
+      if (err.code === &#x27;EADDRINUSE&#x27;) {
+        return findAndStart();
+      }
+      else if (callback) {
+        callback(err);
+      }
+    });
+
+    //
+    // Create a unique socket file based on the current microtime.
+    //
+    var sock = self._sockFile = path.join(self.sockPath, [
+      &#x27;worker&#x27;,
+      new Date().getTime() + utile.randomString(3),
+      &#x27;sock&#x27;
+    ].join(&#x27;.&#x27;));
+
+    if (process.platform === &#x27;win32&#x27;) {
+      //
+      // Create &#x27;symbolic&#x27; file on the system, so it can be later
+      // found via &#x22;forever list&#x22; since the `\\.pipe\\*` &#x22;files&#x22; can&#x27;t
+      // be enumerated because ... Windows.
+      //
+      fs.openSync(sock, &#x27;w&#x27;);
+
+      //
+      // It needs the prefix, otherwise EACCESS error happens on Windows
+      // (no .sock extension, only named pipes with .pipe prefixes)
+      //
+      sock = &#x27;\\\\.\\pipe\\&#x27; + sock;
+    }
+
+    self._socket.listen(sock);
+  }
+
+  //
+  // Attempt to start the server the first time
+  //
+  findAndStart();
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.cli" id="apidoc.module.forever.cli">module forever.cli</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.addColumn" id="apidoc.element.forever.cli.addColumn">
+        function <span class="apidocSignatureSpan">forever.cli.</span>addColumn
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addColumn = function (name) {
+  if (checkColumn(name)) {
+    var columns = forever.config.get(&#x27;columns&#x27;);
+
+    if (~columns.indexOf(name)) {
+      return forever.log.warn(name.magenta + &#x27; already exists in forever&#x27;);
+    }
+
+    forever.log.info(&#x27;Adding column: &#x27; + name.magenta);
+    columns.push(name);
+
+    forever.config.set(&#x27;columns&#x27;, columns);
+    forever.config.saveSync();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.cleanLogs" id="apidoc.element.forever.cli.cleanLogs">
+        function <span class="apidocSignatureSpan">forever.cli.</span>cleanLogs
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanLogs = function () {
+  forever.log.silly(&#x27;Tidying &#x27; + forever.config.get(&#x27;root&#x27;));
+  forever.cleanUp(true).on(&#x27;cleanUp&#x27;, function () {
+    forever.log.silly(forever.config.get(&#x27;root&#x27;) + &#x27; tidied.&#x27;);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.clear" id="apidoc.element.forever.cli.clear">
+        function <span class="apidocSignatureSpan">forever.cli.</span>clear
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clear = function (key) {
+  if (reserved.indexOf(key) !== -1) {
+    forever.log.warn(&#x27;Cannot clear reserved config: &#x27; + key.grey);
+    forever.log.warn(&#x27;Use `forever set &#x27; + key + &#x27;` instead&#x27;);
+    return;
+  }
+
+  updateConfig(function () {
+    forever.log.info(&#x27;Clearing forever config: &#x27; + key.grey);
+    forever.config.clear(key);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.config" id="apidoc.element.forever.cli.config">
+        function <span class="apidocSignatureSpan">forever.cli.</span>config
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function () {
+  var keys = Object.keys(forever.config.store),
+      conf = cliff.inspect(forever.config.store);
+
+  if (keys.length &#x3c;= 2) {
+    conf = conf.replace(/\{\s/, &#x27;{ \n&#x27;)
+               .replace(/\}/, &#x27;\n}&#x27;)
+               .replace(&#x27;\\033[90m&#x27;, &#x27;  \\033[90m&#x27;)
+               .replace(/, /ig, &#x27;,\n  &#x27;);
+  }
+  else {
+    conf = conf.replace(/\n\s{4}/ig, &#x27;\n  &#x27;);
+  }
+
+  conf.split(&#x27;\n&#x27;).forEach(function (line) {
+    forever.log.data(line);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.getOptions" id="apidoc.element.forever.cli.getOptions">
+        function <span class="apidocSignatureSpan">forever.cli.</span>getOptions
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getOptions = function (file) {
+  var options = {},
+      absFile = isAbsolute(file) ? file : path.resolve(process.cwd(), file),
+      configKeys = [
+        &#x27;pidFile&#x27;, &#x27;logFile&#x27;, &#x27;errFile&#x27;, &#x27;watch&#x27;, &#x27;minUptime&#x27;, &#x27;append&#x27;,
+        &#x27;silent&#x27;, &#x27;outFile&#x27;, &#x27;max&#x27;, &#x27;command&#x27;, &#x27;path&#x27;, &#x27;spinSleepTime&#x27;,
+        &#x27;sourceDir&#x27;, &#x27;workingDir&#x27;, &#x27;uid&#x27;, &#x27;watchDirectory&#x27;, &#x27;watchIgnore&#x27;,
+        &#x27;killTree&#x27;, &#x27;killSignal&#x27;, &#x27;id&#x27;
+      ],
+      specialKeys = [&#x27;script&#x27;, &#x27;args&#x27;],
+      configs;
+
+  //
+  // Load JSON configuration values
+  //
+  if (path.extname(file) === &#x27;.json&#x27;) {
+    configs = shush(absFile);
+    configs = !Array.isArray(configs) ? [configs] : configs;
+
+    configs = configs.map(function (conf) {
+      var mut = Object.keys(conf)
+        .reduce(function (acc, key) {
+          if (~configKeys.indexOf(key) || ~specialKeys.indexOf(key)) {
+            acc[key] = conf[key];
+          }
+
+          return acc;
+        }, {});
+
+      if (!mut.script) {
+        forever.log.error(&#x27;&#x22;script&#x22; option required in JSON configuration files&#x27;);
+        console.log(prettyjson.render(mut));
+        process.exit(1);
+      }
+
+      return mut;
+    });
+  } else {
+    options.script = file;
+  }
+
+  //
+  // First isolate options which should be passed to file
+  //
+  options.args = process.argv.splice(process.argv.indexOf(file) + 1);
+
+  //
+  // Now we have to force optimist to reparse command line options because
+  // we&#x27;ve removed some before.
+  //
+  app.config.stores.argv.store = {};
+  app.config.use(&#x27;argv&#x27;, argvOptions);
+
+  configKeys.forEach(function (key) {
+    options[key] = app.config.get(key);
+  });
+
+  options.watchIgnore         = options.watchIgnore || [];
+  options.watchIgnorePatterns = Array.isArray(options.watchIgnore)
+    ? options.watchIgnore
+    : [options.watchIgnore];
+
+  if (!options.minUptime) {
+    forever.log.warn(&#x27;--minUptime not set. Defaulting to: 1000ms&#x27;);
+    options.minUptime = 1000;
+  }
+
+  if (!options.spinSleepTime) {
+    forever.log.warn([
+      &#x27;--spinSleepTime not set. Your script&#x27;,
+      &#x27;will exit if it does not stay up for&#x27;,
+      &#x27;at least &#x27; + options.minUptime + &#x27;ms&#x27;
+    ].join(&#x27; &#x27;));
+  }
+
+  function assignSpawnWith(options) {
+    options.sourceDir  = options.sourceDir  || (file &#x26;&#x26; file[0] !== &#x27;/&#x27; ? process.cwd() : &#x27;/&#x27;);
+    options.workingDir = options.workingDir || options.sourceDir;
+    options.spawnWith  = { cwd: options.workingDir };
+    return options;
+  }
+
+  if (configs &#x26;&#x26; configs.length) {
+    return configs.map(function (conf) {
+      return assignSpawnWith(objectAssign(clone(options), conf));
+    });
+  }
+
+  return [assignSpawnWith(options)];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.help" id="apidoc.element.forever.cli.help">
+        function <span class="apidocSignatureSpan">forever.cli.</span>help
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">help = function () {
+  util.puts(help.join(&#x27;\n&#x27;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.list" id="apidoc.element.forever.cli.list">
+        function <span class="apidocSignatureSpan">forever.cli.</span>list
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function () {
+  forever.list(true, function (err, processes) {
+    if (processes) {
+      forever.log.info(&#x27;Forever processes running&#x27;);
+      processes.split(&#x27;\n&#x27;).forEach(function (line) {
+        forever.log.data(line);
+      });
+    }
+    else {
+      forever.log.info(&#x27;No forever processes running&#x27;);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+]
+```
+
+### Using In Your Code
+The forever module exposes some useful methods to use in your code. Each method returns an instance of an EventEmitter which emits
+ when complete. See the [forever cli commands][2] for sample usage.
+
+**Remark:** As of `forever@0.6.0` processes will not automatically be available in `forever.<span class="apidocCodeKeywordSpan">
+list</span>()`. In order to get your processes into `forever.list()` or `forever list` you must instantiate the `forever` socket
+ server:
+
+``` js
+  forever.startServer(child);
+```
+
+This method takes multiple `forever.Monitor` instances which are defined in the `forever-monitor` dependency.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.logFiles" id="apidoc.element.forever.cli.logFiles">
+        function <span class="apidocSignatureSpan">forever.cli.</span>logFiles
+        <span class="apidocSignatureSpan">(index)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logFiles = function (index) {
+  if (typeof index !== &#x27;undefined&#x27;) {
+    return;
+  }
+
+  var rows = [[&#x27;   &#x27;, &#x27;script&#x27;, &#x27;logfile&#x27;]];
+  index = 0;
+
+  forever.list(false, function (err, processes) {
+    if (!processes) {
+      return forever.log.warn(&#x27;No forever logfiles in &#x27; + forever.config.get(&#x27;root&#x27;).magenta);
+    }
+
+    forever.log.info(&#x27;Logs for running Forever processes&#x27;);
+    rows = rows.concat(processes.map(function (proc) {
+      return [&#x27;[&#x27; + index++ + &#x27;]&#x27;, proc.file.grey, proc.logFile.magenta];
+    }));
+
+    cliff.putRows(&#x27;data&#x27;, rows, [&#x27;white&#x27;, &#x27;grey&#x27;, &#x27;magenta&#x27;]);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.logs" id="apidoc.element.forever.cli.logs">
+        function <span class="apidocSignatureSpan">forever.cli.</span>logs
+        <span class="apidocSignatureSpan">(index)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logs = function (index) {
+  var options = {
+      stream: app.argv.fifo,
+      length: app.argv.number
+  };
+
+  forever.tail(index, options, function (err, log) {
+    if (err) {
+      return forever.log.error(err.message);
+    }
+
+    forever.log.data(log.file.magenta + &#x27;:&#x27; + log.pid + &#x27; - &#x27; + log.line);
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.resetColumns" id="apidoc.element.forever.cli.resetColumns">
+        function <span class="apidocSignatureSpan">forever.cli.</span>resetColumns
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resetColumns = function () {
+  var columns = &#x27;uid command script forever pid logfile uptime&#x27;;
+
+  forever.log.info(&#x27;Setting columns: &#x27; + columns.magenta);
+
+  forever.config.set(&#x27;columns&#x27;, columns.split(&#x27; &#x27;));
+  forever.config.saveSync();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.restart" id="apidoc.element.forever.cli.restart">
+        function <span class="apidocSignatureSpan">forever.cli.</span>restart
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restart = function (file) {
+  var runner = forever.restart(file, true);
+  runner.on(&#x27;restart&#x27;, function (processes) {
+    if (processes) {
+      forever.log.info(&#x27;Forever restarted process(es):&#x27;);
+      processes.split(&#x27;\n&#x27;).forEach(function (line) {
+        forever.log.data(line);
+      });
+    }
+    else {
+      forever.log.info(&#x27;No forever processes running&#x27;);
+    }
+  });
+
+  runner.on(&#x27;error&#x27;, function (err) {
+    forever.log.error(&#x27;Error restarting process: &#x27; + file.grey);
+    forever.log.error(err.message);
+    process.exit(1);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.restartAll" id="apidoc.element.forever.cli.restartAll">
+        function <span class="apidocSignatureSpan">forever.cli.</span>restartAll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restartAll = function () {
+  var runner = forever.restartAll(true);
+  runner.on(&#x27;restartAll&#x27;, function (processes) {
+    if (processes) {
+      forever.log.info(&#x27;Forever restarted processes:&#x27;);
+      processes.split(&#x27;\n&#x27;).forEach(function (line) {
+        forever.log.data(line);
+      });
+    }
+    else {
+      forever.log.info(&#x27;No forever processes running&#x27;);
+    }
+  });
+
+  runner.on(&#x27;error&#x27;, function () {
+    forever.log.info(&#x27;No forever processes running&#x27;);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.rmColumn" id="apidoc.element.forever.cli.rmColumn">
+        function <span class="apidocSignatureSpan">forever.cli.</span>rmColumn
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rmColumn = function (name) {
+  if (checkColumn(name)) {
+    var columns = forever.config.get(&#x27;columns&#x27;);
+
+    if (!~columns.indexOf(name)) {
+      return forever.log.warn(name.magenta + &#x27; doesn\&#x27;t exist in forever&#x27;);
+    }
+
+    forever.log.info(&#x27;Removing column: &#x27; + name.magenta);
+    columns.splice(columns.indexOf(name), 1);
+
+    forever.config.set(&#x27;columns&#x27;, columns);
+    forever.config.saveSync();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.run" id="apidoc.element.forever.cli.run">
+        function <span class="apidocSignatureSpan">forever.cli.</span>run
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function () {
+  var file = app.argv._[0],
+      options = getOptions(file);
+
+  options.forEach(function (o) {
+    tryStart(o.script, o, function () {
+      var monitor = forever.start(o.script, o);
+      monitor.on(&#x27;start&#x27;, function () {
+        forever.startServer(monitor);
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.set" id="apidoc.element.forever.cli.set">
+        function <span class="apidocSignatureSpan">forever.cli.</span>set
+        <span class="apidocSignatureSpan">(key, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (key, value) {
+  updateConfig(function () {
+    forever.log.info(&#x27;Setting forever config: &#x27; + key.grey);
+    forever.config.set(key, value);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### forever.stop (index)
+Stops the forever daemon script at the specified index. These indices are the same as those returned by forever.list(). This method
+ returns an EventEmitter that raises the &#x27;stop&#x27; event when complete.
+
+#### forever.stopAll (format)
+Stops all forever scripts currently running. This method returns an EventEmitter that raises the &#x27;stopAll&#x27; event when
+complete.
+
+The `format` parameter is a boolean value indicating whether the returned values should be formatted according to the configured
+ columns which can set with `forever columns` or programmatically `forever.config.<span class="apidocCodeKeywordSpan">set</span>(&#
+x27;columns&#x27;)`.
+
+#### forever.list (format, callback)
+Returns a list of metadata objects about each process that is being run using forever. This method will return the list of metadata
+ as such. Only processes which have invoked `forever.startServer()` will be available from `forever.list()`
+
+The `format` parameter is a boolean value indicating whether the returned values should be formatted according to the configured
+ columns which can set with `forever columns` or programmatically `forever.config.set(&#x27;columns&#x27;)`.
+
+#### forever.tail (target, options, callback)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.setColumns" id="apidoc.element.forever.cli.setColumns">
+        function <span class="apidocSignatureSpan">forever.cli.</span>setColumns
+        <span class="apidocSignatureSpan">(columns)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setColumns = function (columns) {
+  forever.log.info(&#x27;Setting columns: &#x27; + columns.magenta);
+
+  forever.config.set(&#x27;columns&#x27;, columns.split(&#x27; &#x27;));
+  forever.config.saveSync();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.start" id="apidoc.element.forever.cli.start">
+        function <span class="apidocSignatureSpan">forever.cli.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  if (app.argv.version) {
+    return console.log(&#x27;v&#x27; + forever.version);
+  }
+
+  //
+  // Check for --no-colors/--colors and --plain option
+  //
+  if ((typeof app.argv.colors !== &#x27;undefined&#x27; &#x26;&#x26; !app.argv.colors) || app.argv.plain) {
+    colors.mode = &#x27;none&#x27;;
+  }
+
+  if (app.config.get(&#x27;help&#x27;)) {
+    return util.puts(help.join(&#x27;\n&#x27;));
+  }
+
+  app.init(function () {
+    if (app.argv._.length &#x26;&#x26; actions.indexOf(app.argv._[0]) === -1) {
+      return cli.run();
+    }
+
+    app.start();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.startDaemon" id="apidoc.element.forever.cli.startDaemon">
+        function <span class="apidocSignatureSpan">forever.cli.</span>startDaemon
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">startDaemon = function () {
+  var file = app.argv._[1],
+      options = getOptions(file);
+
+  options.forEach(function (o) {
+    forever.log.info(&#x27;Forever processing file: &#x27; + o.script.grey);
+    tryStart(o.script, o, function () {
+      forever.startDaemon(o.script, o);
+    });
+  });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.stop" id="apidoc.element.forever.cli.stop">
+        function <span class="apidocSignatureSpan">forever.cli.</span>stop
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (file) {
+  var runner = forever.stop(file, true);
+
+  runner.on(&#x27;stop&#x27;, function (process) {
+    forever.log.info(&#x27;Forever stopped process:&#x27; + &#x27;\n&#x27; + process);
+  });
+
+  runner.on(&#x27;error&#x27;, function (err) {
+    forever.log.error(&#x27;Forever cannot find process with id: &#x27; + file);
+    process.exit(1);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.stopall" id="apidoc.element.forever.cli.stopall">
+        function <span class="apidocSignatureSpan">forever.cli.</span>stopall
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stopall = function () {
+  var runner = forever.stopAll(true);
+  runner.on(&#x27;stopAll&#x27;, function (processes) {
+    if (processes) {
+      forever.log.info(&#x27;Forever stopped processes:&#x27;);
+      processes.split(&#x27;\n&#x27;).forEach(function (line) {
+        forever.log.data(line);
+      });
+    }
+    else {
+      forever.log.info(&#x27;No forever processes running&#x27;);
+    }
+  });
+
+  runner.on(&#x27;error&#x27;, function () {
+    forever.log.info(&#x27;No forever processes running&#x27;);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.cli.stopbypid" id="apidoc.element.forever.cli.stopbypid">
+        function <span class="apidocSignatureSpan">forever.cli.</span>stopbypid
+        <span class="apidocSignatureSpan">(pid)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stopbypid = function (pid) {
+  forever.log.warn(&#x27;Deprecated, try `forever stop &#x27; + pid + &#x27;` instead.&#x27;);
+  cli.stop(pid);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.log" id="apidoc.module.forever.log">module forever.log</a></h1>
+
+
+
+
+
+
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.data" id="apidoc.element.forever.log.data">
+        function <span class="apidocSignatureSpan">forever.log.</span>data
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">data = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.debug" id="apidoc.element.forever.log.debug">
+        function <span class="apidocSignatureSpan">forever.log.</span>debug
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">debug = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.error" id="apidoc.element.forever.log.error">
+        function <span class="apidocSignatureSpan">forever.log.</span>error
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">error = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.help" id="apidoc.element.forever.log.help">
+        function <span class="apidocSignatureSpan">forever.log.</span>help
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">help = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.info" id="apidoc.element.forever.log.info">
+        function <span class="apidocSignatureSpan">forever.log.</span>info
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">info = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.input" id="apidoc.element.forever.log.input">
+        function <span class="apidocSignatureSpan">forever.log.</span>input
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">input = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.prompt" id="apidoc.element.forever.log.prompt">
+        function <span class="apidocSignatureSpan">forever.log.</span>prompt
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prompt = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.silly" id="apidoc.element.forever.log.silly">
+        function <span class="apidocSignatureSpan">forever.log.</span>silly
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">silly = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.verbose" id="apidoc.element.forever.log.verbose">
+        function <span class="apidocSignatureSpan">forever.log.</span>verbose
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">verbose = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.log.warn" id="apidoc.element.forever.log.warn">
+        function <span class="apidocSignatureSpan">forever.log.</span>warn
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">warn = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.forever.out" id="apidoc.module.forever.out">module forever.out</a></h1>
+
+
+
+
+
+
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.out.debug" id="apidoc.element.forever.out.debug">
+        function <span class="apidocSignatureSpan">forever.out.</span>debug
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">debug = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.out.error" id="apidoc.element.forever.out.error">
+        function <span class="apidocSignatureSpan">forever.out.</span>error
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">error = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.out.info" id="apidoc.element.forever.out.info">
+        function <span class="apidocSignatureSpan">forever.out.</span>info
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">info = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.out.silly" id="apidoc.element.forever.out.silly">
+        function <span class="apidocSignatureSpan">forever.out.</span>silly
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">silly = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.out.verbose" id="apidoc.element.forever.out.verbose">
+        function <span class="apidocSignatureSpan">forever.out.</span>verbose
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">verbose = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.forever.out.warn" id="apidoc.element.forever.out.warn">
+        function <span class="apidocSignatureSpan">forever.out.</span>warn
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">warn = function (msg) {
+  // build argument list (level, msg, ... [string interpolate], [{metadata}], [callback])
+  var args = [level].concat(Array.prototype.slice.call(arguments));
+  target.log.apply(target, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
